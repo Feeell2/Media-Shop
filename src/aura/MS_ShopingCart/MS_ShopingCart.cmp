@@ -1,12 +1,30 @@
-<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="MS_ShoppingCartHandler" description="MS_ShopingCart ">
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global"
+                controller="MS_ShoppingCartHandler" description="MS_ShopingCart ">
     <aura:attribute name="listProducts" type="List" default="[]"/>
+    <aura:attribute name="spinner" type="boolean" default="true"/>
     <aura:handler name="init" value="{!this}" action="{!c.getProductsToList}"/>
     <aura:handler name="deleteProductEvent" event="c:MS_deleteProductEvent" action="{!c.getProductsFromEvent}"/>
-    <h1 class="slds-card__header-title">Shopping Cart</h1>
+
+    <aura:if isTrue="{!v.spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading...</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+
+    <h1 class="slds-card__header-title">{!$Label.c.Shopping_Cart}</h1>
+    <aura:if isTrue="{!v.listProducts.length>0}">
         <aura:iteration items="{!v.listProducts}" var="product">
             <div class="slds-container_center" style="width:100%;margin:5px 15px">
                 <c:MS_ShoppingCartTile product="{!product}" quantity="{!product.quantity}"/>
             </div>
         </aura:iteration>
+        <aura:set attribute="else">
+        <h1 class="slds-m-around_large" style="font-size:1.2rem">{!$Label.c.Your_shopping_cart_is_empty}</h1>
+        </aura:set>
+    </aura:if>
 
 </aura:component>

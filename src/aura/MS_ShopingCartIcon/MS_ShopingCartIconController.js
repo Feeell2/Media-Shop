@@ -6,5 +6,9 @@
           "url": address,
         });
         urlEvent.fire();
-      }
+      },
+
+      recalculateQuantity:function(component,event,helper){
+          helper.getProductsToRecalculate(component,event);
+      },
 })

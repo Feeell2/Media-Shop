@@ -1,18 +1,5 @@
 public with sharing class MS_ShoppingCartHandler {
 
-//    @AuraEnabled(cacheable=true)
-//    public static String addProductToCache(String product){
-//        String partitionInput = 'local.ShoppingCart';
-//        String counterKeyInput = 'Cart';
-//        Cache.SessionPartition sessionPartition=Cache.Session.getPartition(partitionInput);
-//        if(sessionPartition.contains(counterKeyInput)){
-//            String message=(String)sessionPartition.get(counterKeyInput)+product;
-//            sessionPartition.put(counterKeyInput, message);
-//        }else{
-//            sessionPartition.put(counterKeyInput, product);
-//        }
-//        return (String)sessionPartition.get(counterKeyInput);
-//    }
     @AuraEnabled
     public static Cart addProductToCache(PricebookEntry product, String quantity) {
 

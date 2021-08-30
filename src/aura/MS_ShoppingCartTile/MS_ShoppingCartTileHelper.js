@@ -14,6 +14,7 @@
     },
 
     increaseQuantityHelper:function(component,event){
+
         let quantity=component.get('v.quantity');
         let newQuantity=quantity+1;
         component.set('v.quantity',newQuantity);
@@ -33,6 +34,7 @@
     },
 
     deleteProductHelper:function(component,event){
+        let updateQuantityEvent = $A.get("e.c:MS_UpdateQuantityInCart");
         let cmpEvent = component.getEvent("deleteProductEvent");
          let updateEvent = $A.get("e.c:MS_UpdatePrice");
         let action = component.get('c.deleteProduct');
@@ -50,12 +52,14 @@
                 this.showToast(component,event,"Deleted product from cart","success");
                cmpEvent.fire();
                updateEvent.fire();
+               updateQuantityEvent.fire();
             }
         })
         $A.enqueueAction(action);
     },
 
     handleQuantityProductHelper:function(component,event){
+        let updateQuantityEvent = $A.get("e.c:MS_UpdateQuantityInCart");
         let updateEvent = $A.get("e.c:MS_UpdatePrice");
         let action = component.get('c.changeQuantity');
         action.setParams({
@@ -67,6 +71,7 @@
             let result = response.getReturnValue();
             if(state==='SUCCESS'){
                 updateEvent.fire();
+                updateQuantityEvent.fire();
             }
         })
         $A.enqueueAction(action);

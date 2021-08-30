@@ -5,10 +5,12 @@
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <aura:handler event="c:MS_UpdatePrice" action="{!c.init}"/>
 
-    <lightning:card class="slds-m-top_large slds-p-horizontal_medium">
-        <div class="slds-container_right">
-            <h1>Total Order Amount: <span style="font-size:1.8rem">{!v.sumPrice}$</span></h1>
-            <lightning:button label="Order"/>
-        </div>
-    </lightning:card>
+    <aura:if isTrue="{!v.list_product.length>0}">
+        <lightning:card class="slds-m-top_large slds-p-horizontal_medium">
+            <div class="slds-container_right">
+                <h1>{!$Label.c.Total_Order_Amount}: <span style="font-size:1.8rem">{!v.sumPrice}$</span></h1>
+                <lightning:button label="{!$Label.c.Order}"/>
+            </div>
+        </lightning:card>
+    </aura:if>
 </aura:component>

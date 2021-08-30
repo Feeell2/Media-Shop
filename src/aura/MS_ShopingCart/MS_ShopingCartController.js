@@ -5,9 +5,9 @@
                 let state=response.getState();
                 let result = response.getReturnValue();
                 if(state==='SUCCESS'){
-                    console.log(result.products);
                     component.set('v.listProducts',result.products);
                 }
+                component.set('v.spinner',false);
               })
               $A.enqueueAction(action);
     },

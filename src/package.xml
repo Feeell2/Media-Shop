@@ -6,16 +6,16 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>MS_MangerPriceBook</members>
-        <members>MS_ProductAddOrEditProduct</members>
-        <members>MS_ProductAddingModal</members>
-        <members>MS_ProductListView</members>
-        <members>MS_ProductTilePricebookEntry</members>
+        <members>MS_MediaShopThemeLayout</members>
+        <members>MS_ProductTile</members>
+        <members>MS_ShopingCart</members>
+        <members>MS_ShopingCartIcon</members>
+        <members>MS_ShoppingCartTitle</members>
+        <members>MS_SummaryCart</members>
+        <members>MS_UpdatePrice</members>
+        <members>MS_UpdateQuantityInCart</members>
         <name>AuraDefinitionBundle</name>
     </types>
-    <types>
-        <members>*</members>
-        <name>StaticResource</name>
-    </types>
+
     <version>48.0</version>
 </Package>

@@ -7,6 +7,7 @@
     <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastComponentProduct"/>
     <aura:registerEvent name="deleteProductEvent" type="c:MS_deleteProductEvent"/>
     <aura:registerEvent name="updatePrice" type="c:MS_UpdatePrice"/>
+    <aura:registerEvent name="updateQuantity" type="c:MS_UpdateQuantityInCart"/>
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <div class="slds-box_border productInfo">
         <div class="slds-grid">

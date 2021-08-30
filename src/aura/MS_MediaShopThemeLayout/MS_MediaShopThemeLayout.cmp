@@ -1,6 +1,6 @@
-<aura:component implements="forceCommunity:themeLayout" access="global"  description="MS_MediaShopThemeLayout">
+<aura:component implements="forceCommunity:themeLayout" access="global" description="MS_MediaShopThemeLayout">
     <aura:attribute name="blueBackground" type="Boolean" default="true"/>
-    <aura:attribute name="smallLogo" type="Boolean" default="false" />
+    <aura:attribute name="smallLogo" type="Boolean" default="false"/>
     <aura:attribute name="search" type="Aura.Component[]" required="false"/>
     <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
     <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
@@ -16,19 +16,22 @@
             </div>
             <div class="slds-grid">
                 <c:MS_ShopingCartIcon/>
-            <div style="text-align:right" class="profileMenuRegion slds-align-middle">
-                    {!v.profileMenu}
-            </div>
+                <div style="text-align:right" class="profileMenuRegion slds-align-middle">
+                        {!v.profileMenu}
+                </div>
             </div>
         </div>
         <div class="navigation">
                 {!v.navBar}
         </div>
-        <div class="newHeader">
-                {!v.newHeader}
-        </div>
-        <div class="mainContentArea">
-                {!v.body}
-        </div>
+            <div style="width:80%;margin:0 auto">
+                <div class="newHeader">
+                        {!v.newHeader}
+                </div>
+                <div class="mainContentArea">
+                        {!v.body}
+                </div>
+            </div>
+
     </div>
 </aura:component>
