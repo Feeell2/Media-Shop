@@ -2,6 +2,9 @@
     <aura:attribute name="product" type="Object"/>
     <aura:attribute name="listProducts" type="List"/>
     <aura:attribute name="disableAddToCart" type="Boolean" default="false"/>
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="message" type="String"/>
+    <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastComponentProductTile"/>
     <aura:handler name="init" value="{!this}" action="{!c.getProductsToList}" />
     <div class="slds-box_border productInfo" >
 

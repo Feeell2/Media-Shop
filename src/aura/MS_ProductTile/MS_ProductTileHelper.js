@@ -8,10 +8,11 @@
 
             action.setCallback(this, function(response) {
              let state=response.getState();
-             console.log(state);
              let result = response.getReturnValue();
+             if(state==='SUCCESS'){
              this.showToast(component,event,"Added To Cart","success");
-             this.checkAddingToCart(component,event);
+             this.getProductsToListHelper(component,event);
+             }
             })
             $A.enqueueAction(action);
     },
@@ -41,7 +42,7 @@
     showToast : function(component, event,message,typeToast) {
           component.set("v.type", typeToast);
           component.set("v.message", message);
-          let childComponent = component.find("toastComponentProduct");
+          let childComponent = component.find("toastComponentProductTile");
           let fireToast = childComponent.toast();
       },
 })
