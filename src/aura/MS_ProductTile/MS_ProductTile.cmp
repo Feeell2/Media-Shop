@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="slds-align-middle slds-m-right_large">
-            <lightning:button disabled="{!v.disableAddToCart}" label="Add" onclick="{!c.addProductToCart}" />
+            <lightning:button disabled="{!v.disableAddToCart}" label="{!$Label.c.Add}" onclick="{!c.addProductToCart}" />
             </div>
         </div>
     </div>

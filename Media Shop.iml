@@ -307,6 +307,10 @@
                           <MetadataEntry>
                             <option name="name" value="testAccountHierarchy" />
                           </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductSearch" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
                         </list>
                       </option>
                       <option name="name" value="ApexClass" />
@@ -632,22 +636,6 @@
                             <option name="name" value="MS_deleteProductEvent" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_MangerPriceBook" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductAddingModal" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductAddOrEditProduct" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductListView" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="MS_ProductPhotoSlider" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -658,15 +646,7 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_ProductSelectModal" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="MS_ProductTile" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductTilePricebookEntry" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
