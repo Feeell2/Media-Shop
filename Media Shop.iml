@@ -258,12 +258,6 @@
                             <option name="name" value="MS_Comment" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_LeadSendOffer" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductAdding" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="MS_ProductSearch" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -634,18 +628,6 @@
                             <option name="name" value="MS_deleteProductEvent" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_MangerPriceBook" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductAddingModal" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductAddOrEditProduct" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductListView" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="MS_ProductPhotoSlider" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -661,9 +643,6 @@
                           <MetadataEntry>
                             <option name="name" value="MS_ProductTile" />
                             <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductTilePricebookEntry" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingService" />
