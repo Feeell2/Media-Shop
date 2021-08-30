@@ -1,0 +1,32 @@
+.THIS {
+}
+.THIS .slds-card__header.slds-grid {
+    margin:0;
+    padding:0 !important;
+}
+.THIS .slds-card__body {
+    margin:0;
+    padding:0 !important;
+}
+.THIS.cardRelative {
+    position:relative;
+    padding:0 !important;
+}
+.THIS .buttonModal {
+    position:absolute;
+    z-index:98;
+    right:1rem;
+    top:1rem;
+}
+.THIS .productInput {
+width:150px
+}
+.THIS .selected {
+  border: 3px solid yellow;
+}
+
+.THIS .productImage {
+    width:200px !important;
+    height:200px;
+    border: none;
+}
