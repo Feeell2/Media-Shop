@@ -1,0 +1,13 @@
+.THIS.productInfo {
+    width:80% !important;
+    margin: 0 auto;
+    display:block;
+}
+.THIS .imgClick {
+    cursor:pointer;
+}
+
+.THIS .information {
+    color:gray;
+
+}

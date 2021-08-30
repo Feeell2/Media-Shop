@@ -1,0 +1,52 @@
+<aura:component description="MS_ShoppingCartTile" controller="MS_ShoppingCartHandler" access="global">
+    <aura:attribute name="product" type="Object"/>
+    <aura:attribute name="originallyPrice" type="Integer"/>
+    <aura:attribute name="quantity" type="Integer"/>
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="message" type="String"/>
+    <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastComponentProduct"/>
+    <aura:registerEvent name="deleteProductEvent" type="c:MS_deleteProductEvent"/>
+    <aura:registerEvent name="updatePrice" type="c:MS_UpdatePrice"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <div class="slds-box_border productInfo">
+        <div class="slds-grid">
+            <div class="slds-grid  slds-p-around_medium" style="width: 100%">
+                <img class="imgClick"
+                     src="{!if(v.product.product.Product2.Photo_Id__c!=null,'/sfc/servlet.shepherd/version/download/'+v.product.product.Product2.Photo_Id__c,$Resource.blankProduct)}"
+                     alt="" style="width:150px;height:150px;"/>
+                <div class="slds-m-left_large" style="color:black">
+                    <h1 style="font-size:20px!important; text-align:left">{!v.product.product.Product2.Name}</h1>
+                    <div style="font-size:12px;" class="slds-grid">
+                        <h1 class="slds-m-right_large"><span class="information">{!$Label.c.Brand}: </span>
+                            {!v.product.product.Product2.brand__c}</h1>
+                        <h1 class="slds-m-left_large"><span class="information">{!$Label.c.Model}: </span>
+                            {!v.product.product.Product2.model__c}</h1>
+                    </div>
+                    <h1 style="font-size:30px!important; text-align:left; font-weight:bold">
+                        {!v.product.product.UnitPrice}$</h1>
+                </div>
+            </div>
+            <div class="slds-form-element slds-align-middle slds-m-right_large">
+                <div class="slds-form-element__control">
+                    <button class="slds-button slds-button_icon slds-button_icon-small slds-input__button_decrement"
+                            title="Decrement counter" onclick="{!c.decreaseQuantity}">
+                        <lightning:icon class="slds-button__icon" iconName="utility:ban" size="xx-small"/>
+                        <span class="slds-assistive-text">Decrement counter</span>
+                    </button>
+                    <input type="number" id="default1" placeholder="1" value="{!v.quantity}"
+                           class="slds-input slds-input_counter"/>
+                    <button onclick="{!c.increaseQuantity}"
+                            class="slds-button slds-button_icon slds-button_icon-small slds-input__button_increment"
+                            title="Increment counter">
+                        <lightning:icon class="slds-button__icon" iconName="utility:new" size="xx-small"/>
+                        <!--                            <span class="slds-assistive-text">Increment counter</span>-->
+                    </button>
+                </div>
+            </div>
+            <div class="slds-align-middle slds-m-right_large">
+                <lightning:buttonIcon iconName="utility:delete" title="Delete" onclick="{!c.deleteProductFromCart}"
+                                      alternativeText="asd"/>
+            </div>
+        </div>
+    </div>
+</aura:component>

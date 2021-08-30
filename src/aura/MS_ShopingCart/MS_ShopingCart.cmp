@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="MS_ShoppingCartHandler" description="MS_ShopingCart ">
+    <aura:attribute name="listProducts" type="List" default="[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getProductsToList}"/>
+    <aura:handler name="deleteProductEvent" event="c:MS_deleteProductEvent" action="{!c.getProductsFromEvent}"/>
+    <h1 class="slds-card__header-title">Shopping Cart</h1>
+        <aura:iteration items="{!v.listProducts}" var="product">
+            <div class="slds-container_center" style="width:100%;margin:5px 15px">
+                <c:MS_ShoppingCartTile product="{!product}" quantity="{!product.quantity}"/>
+            </div>
+        </aura:iteration>
+
+</aura:component>

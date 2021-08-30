@@ -1,0 +1,8 @@
+<aura:component description="MS_ShopingCartIcon">
+    <div class="slds-align-middle slds-m-right_large">
+        <div style="cursor:pointer" onclick="{!c.navigate}">
+            <lightning:icon iconName="utility:cart" alternativeText="Cart" title="Cart" />
+            <div class="radius">15</div>
+        </div>
+    </div>
+</aura:component>

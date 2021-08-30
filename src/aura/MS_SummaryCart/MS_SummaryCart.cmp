@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global"
+                controller="MS_ShoppingCartHandler" description="MS_SummaryCart">
+    <aura:attribute name="list_product" type="List"/>
+    <aura:attribute name="sumPrice" type="Integer"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler event="c:MS_UpdatePrice" action="{!c.init}"/>
+
+    <lightning:card class="slds-m-top_large slds-p-horizontal_medium">
+        <div class="slds-container_right">
+            <h1>Total Order Amount: <span style="font-size:1.8rem">{!v.sumPrice}$</span></h1>
+            <lightning:button label="Order"/>
+        </div>
+    </lightning:card>
+</aura:component>
