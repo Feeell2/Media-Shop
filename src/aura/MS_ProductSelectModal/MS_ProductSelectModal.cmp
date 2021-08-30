@@ -1,0 +1,214 @@
+<aura:component description="MS_ProductSelectModal" controller="MS_ProductAdding">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="5"/>
+    <aura:attribute name="isOpenAddProductModal" type="Boolean" default="false"/>
+    <aura:attribute name="selectedProducts" type="List"/>
+    <aura:attribute name="listStandardProducts" type="List"/>
+    <aura:attribute name="productsToPriceBook" type="List" default="[]"/>
+    <aura:attribute name="selectedRowsList" type="List" />
+    <aura:attribute name="updateMode" type="Boolean" default="false"/>
+
+
+    <!-- handlers-->
+<!--    <aura:handler name="init" value="{! this }" action="{! c.init }"/>-->
+
+    <lightning:button name="name" label="Add Product" onclick="{!c.init}"/>
+    <aura:if isTrue="{!v.isOpenAddProductModal}">
+            <div role="dialog" class="slds-modal slds-fade-in-open ">
+                <div class="slds-modal__container">
+                    <div class="demo-only demo-only_viewport" style="height:640px">
+                        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large"
+                                 aria-labelledby="id-of-modalheader-h2" aria-modal="true"
+                                 aria-describedby="modal-content-id-1">
+                            <div class="slds-modal__container">
+                                <header class="slds-modal__header">
+                                    <h2 id="id-of-modalheader-h2" class="slds-text-heading_medium">Add products</h2>
+                                    <p class="slds-m-top_x-small">Pricebook: Salesforce Products</p>
+                                </header>
+                                <div class="slds-modal__content slds-grid slds-nowrap" id="modal-content-id-1">
+                                    <div class="slds-col slds-grid slds-grid_vertical slds-nowrap">
+                                        <div class="slds-p-vertical_x-small slds-p-horizontal_large slds-shrink-none slds-theme_shade">
+                                            <div class="slds-form-element">
+                                                <label class="slds-form-element__label slds-assistive-text"
+                                                       for="combobox-unique-id-23">Search</label>
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-combobox_container">
+                                                        <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
+                                                             aria-expanded="false" aria-haspopup="listbox"
+                                                             role="combobox">
+
+                                                            <div id="listbox-unique-id" role="listbox"
+                                                                 class="slds-dropdown slds-dropdown_fluid">
+                                                                <ul class="slds-listbox slds-listbox_vertical"
+                                                                    role="presentation">
+                                                                    <li role="presentation" class="slds-listbox__item">
+
+                                                                    </li>
+                                                                    <li role="presentation" class="slds-listbox__item">
+                                                                        <div id="listbox-option-unique-id-02"
+                                                                             class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                                             role="option">
+
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-scrollable slds-grow">
+                                            <div class="slds-scrollable_none">
+                                                <table aria-multiselectable="true"
+                                                       class="slds-table slds-no-row-hover slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols"
+                                                       role="grid" aria-label="Example product list">
+                                                    <thead>
+                                                    <tr class="slds-line-height_reset">
+                                                        <th class="" scope="col" style="width:3.75rem"></th>
+                                                        <th aria-label="Name" aria-sort="none"
+                                                            class="slds-is-resizable slds-is-sortable" scope="col">
+                                                            <a class="slds-th__action slds-text-link_reset" href="#"
+                                                               role="button"
+                                                               tabindex="-1">
+                                                                <span class="slds-assistive-text">Sort by: </span>
+                                                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                                                <span class="slds-truncate"
+                                                                      title="Product Code">Name</span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="slds-resizable">
+                                                                <input type="range" aria-label="Name column width"
+                                                                       class="slds-resizable__input slds-assistive-text"
+                                                                       id="cell-resize-handle-77" max="1000" min="20"
+                                                                       tabindex="-1"/>
+                                                                <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                                                            </div>
+                                                        </th>
+                                                        <th aria-label="Product Code" aria-sort="none"
+                                                            class="slds-is-resizable slds-is-sortable" scope="col">
+                                                            <a class="slds-th__action slds-text-link_reset" href="#"
+                                                               role="button"
+                                                               tabindex="-1">
+                                                                <span class="slds-assistive-text">Sort by: </span>
+                                                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                                                <span class="slds-truncate"
+                                                                      title="Product Code">Brand</span>
+                                                                    <span class="slds-icon_container slds-icon-utility-arrowdown">
+
+                          </span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="slds-resizable">
+                                                                <input type="range"
+                                                                       aria-label="Product Code column width"
+                                                                       class="slds-resizable__input slds-assistive-text"
+                                                                       id="cell-resize-handle-78" max="1000" min="20"
+                                                                       tabindex="-1"/>
+                                                                <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                                                            </div>
+                                                        </th>
+                                                        <th aria-label="List Price" aria-sort="none"
+                                                            class="slds-is-resizable slds-is-sortable" scope="col">
+                                                            <a class="slds-th__action slds-text-link_reset" href="#"
+                                                               role="button"
+                                                               tabindex="-1">
+                                                                <span class="slds-assistive-text">Sort by: </span>
+                                                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                                                <span class="slds-truncate"
+                                                                      title="List Price">Price</span>
+                                                                    <span class="slds-icon_container slds-icon-utility-arrowdown">
+
+                          </span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="slds-resizable">
+                                                                <input type="range" aria-label="List Price column width"
+                                                                       class="slds-resizable__input slds-assistive-text"
+                                                                       id="cell-resize-handle-79" max="1000" min="20"
+                                                                       tabindex="-1"/>
+                                                                <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                                                            </div>
+                                                        </th>
+                                                        <th aria-label="Product Family" aria-sort="none"
+                                                            class="slds-is-resizable slds-is-sortable" scope="col">
+                                                            <a class="slds-th__action slds-text-link_reset" href="#"
+                                                               role="button"
+                                                               tabindex="-1">
+                                                                <span class="slds-assistive-text">Sort by: </span>
+                                                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                                    <span class="slds-truncate"
+                                                          title="Product Family">Model</span>
+                                                                    <span class="slds-icon_container slds-icon-utility-arrowdown">
+
+                          </span>
+                                                                </div>
+                                                            </a>
+                                                            <div class="slds-resizable">
+                                                                <input type="range"
+                                                                       aria-label="Product Family column width"
+                                                                       class="slds-resizable__input slds-assistive-text"
+                                                                       id="cell-resize-handle-80" max="1000" min="20"
+                                                                       tabindex="-1"/>
+                                                                <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                                                            </div>
+                                                        </th>
+
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <aura:iteration items="{!v.listStandardProducts}" var="product">
+                                                        <tr>
+                                                            <th scope="row">
+                                                        <span data-value="{!product.Product2.Id}"
+                                                              onclick="{!c.chooseProductToNewPriceBook}">
+                                                            <input type="checkbox" checked="{!if(product.selected,true,false)}"/>
+                                                        </span>
+                                                            </th>
+
+                                                            <th scope="row">
+                                                                <div class="slds-truncate"
+                                                                     title="Analytics">{!product.Product2.Name}</div>
+                                                            </th>
+                                                            <td role="gridcell">
+                                                                <div class="slds-truncate"
+                                                                     title="ANTLY">{!product.Product2.brand__c}</div>
+                                                            </td>
+                                                            <td role="gridcell">
+                                                                <div class="slds-truncate"
+                                                                     title="5000.00">{!product.UnitPrice}</div>
+                                                            </td>
+                                                            <td role="gridcell">
+                                                                <div class="slds-truncate"
+                                                                     title="Analytics Product">{!product.Product2.model__c}</div>
+                                                            </td>
+                                                        </tr>
+                                                    </aura:iteration>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <footer class="slds-modal__footer">
+                                    <lightning:button class="slds-button slds-button_brand" label="Close"
+                                                      onclick="{!c.handleCloseDialogToAdd}"/>
+                                </footer>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+</aura:component>

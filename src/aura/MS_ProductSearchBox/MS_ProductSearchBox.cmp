@@ -1,0 +1,60 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="MS_ProductAdding" description="MS_ProductSearchBox">
+    <ltng:require styles="{!$Resource.NoHeader}"/>
+    <aura:attribute name="name" type="String"/>
+    <aura:attribute name="brand" type="String"/>
+    <aura:attribute name="model" type="String"/>
+    <aura:attribute name="minPrice" type="String"/>
+    <aura:attribute name="maxPrice" type="String"/>
+    <aura:attribute name="searchResult" type="List" default="[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <lightning:layout  multipleRows="true">
+        <lightning:layoutItem padding="around-small" size="12">
+            <lightning:card class="slds-container_center" title="{!$Label.c.Search_Product}">
+                <div class="slds-grid slds-container_center"  style="width:400px">
+
+                    <lightning:layoutItem size="8">
+                        <lightning:input value="{!v.name}" name="name" label="Name"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-align-bottom" size="1">
+                        <lightning:button label="{!$Label.c.search}" variant="brand"
+                                          class="slds-m-left_medium"
+                                          onclick="{!c.search}"/>
+                    </lightning:layoutItem>
+                </div>
+            </lightning:card>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="" size="12">
+            <lightning:layout>
+
+                <lightning:layoutItem padding="horizontal-small" size="2">
+                    <lightning:card class="slds-p-around_small" title="Filters">
+                        <lightning:input value="{!v.brand}" name="brand" label="{!$Label.c.Brand}"/>
+                        <lightning:input value="{!v.model}" name="model" label="{!$Label.c.Model}"/>
+                        <lightning:layoutItem class="slds-grid">
+                            <lightning:input value="{!v.minPrice}" name="Price" placeholder="Min" label="{!$Label.c.Price}"/>
+                            <lightning:input value="{!v.maxPrice}" class="slds-align-bottom slds-m-left_small" name="Price" placeholder="Max"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem class="slds-grid slds-container_right">
+                        <lightning:button label="{!$Label.c.search}" variant="brand"
+                                          class="slds-m-top_small"
+                                          onclick="{!c.search}"
+                                          />
+                        </lightning:layoutItem>
+                    </lightning:card>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="horizontal-small" size="10">
+                    <lightning:card title="Results">
+                        <aura:iteration items="{!v.searchResult}" var="product">
+                            <div class="slds-container_center" style="width:100%;margin:5px 15px">
+                            <c:MS_ProductTile product="{!product}"/>
+                            </div>
+
+
+                        </aura:iteration>
+                    </lightning:card>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>
