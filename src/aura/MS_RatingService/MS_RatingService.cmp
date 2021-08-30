@@ -1,0 +1,22 @@
+<aura:component description="MS_RatingService" access="global"
+                implements="flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+                controller="MS_RatingController">
+    <aura:attribute name="averageRating" type="Integer"/>
+    <aura:attribute name="userRating" type="Integer"/>
+    <aura:attribute name="userType" type="String"/>
+
+    <aura:handler name="addRatingValue" event="c:MS_AddRateProductEvent"
+                  action="{!c.getRatingValue}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+        <div class="">
+            <h1>Average Rate:</h1>
+            <c:MS_RatingTile readonly="true" value="{!v.averageRating}" idMovie="{!v.recordId}"/>
+        </div>
+    <aura:if isTrue="{!v.userType!='Guest'}">
+        <div class="">
+            <h1>Rate the product:</h1>
+            <c:MS_RatingTile value="{!v.userRating}" idMovie="{!v.recordId}"/>
+        </div>
+    </aura:if>
+</aura:component>
