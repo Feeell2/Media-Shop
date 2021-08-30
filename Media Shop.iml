@@ -263,6 +263,9 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="MS_ProductSearch" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="MS_RatingController" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -626,6 +629,10 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="MS_MediaShopThemeLayout" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="MS_ProductAddOrEditProduct" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -666,6 +673,9 @@
                             <option name="name" value="MS_ShopingCart" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="MS_ShopingCartIcon" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="MS_ShoppingCartTile" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -673,9 +683,13 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ToastService" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_UpdatePrice" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_UpdateQuantityInCart" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_deleteProductEvent" />
@@ -832,7 +846,13 @@
                             <option name="name" value="MediaLogo2" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="gradientsmoothbluelinesbackground_2" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="mediashopgutschein" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="mediashopgutschein1" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="movie" />
@@ -1560,6 +1580,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="No_recent_records" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="No_result_for_these_criteria_search" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Not_save_image" />
