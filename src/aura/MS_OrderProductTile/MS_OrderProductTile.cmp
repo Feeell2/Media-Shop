@@ -1,0 +1,32 @@
+<aura:component description="MS_OrderProductTile">
+    <aura:attribute name="product" type="Object"/>
+    <aura:attribute name="quantity" type="Integer"/>
+    <aura:attribute name="originallyPrice" type="Integer"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <div class="slds-box_border productInfo">
+        <div class="slds-grid">
+            <div class="slds-grid  slds-p-around_medium" style="width: 100%">
+                <img class="imgClick"
+                     src="{!if(v.product.product.Product2.Photo_Id__c!=null,'/sfc/servlet.shepherd/version/download/'+v.product.product.Product2.Photo_Id__c,$Resource.blankProduct)}"
+                     alt="" style="width:150px;height:150px;"/>
+                <div class="slds-m-left_large slds-m-right_large" style="color:black">
+                    <h1 style="font-size:20px!important; text-align:left">{!v.product.product.Product2.Name}</h1>
+                    <div style="font-size:12px;" class="slds-grid">
+                        <h1 class="slds-m-right_large"><span class="information">{!$Label.c.Brand}: </span>
+                            {!v.product.product.Product2.brand__c}</h1>
+                        <h1 class="slds-m-left_large"><span class="information">{!$Label.c.Model}: </span>
+                            {!v.product.product.Product2.model__c}</h1>
+                    </div>
+                    <h1 style="font-size:30px!important; text-align:left; font-weight:bold">
+                        {!v.originallyPrice}$</h1>
+                </div>
+                <div class="slds-align-middle slds-m-left_large">
+                    <h1>Quantity: {!v.quantity}</h1>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</aura:component>

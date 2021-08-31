@@ -256,11 +256,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_LeadSendOffer" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductAdding" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductSearch" />
@@ -273,6 +271,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ShoppingCartHandler" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MyProfilePageController" />
@@ -309,6 +308,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="testAccountHierarchy" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderHandler" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>
@@ -626,23 +629,18 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_MangerPriceBook" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_MediaShopThemeLayout" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductAddOrEditProduct" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductAddingModal" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductListView" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductPhotoSlider" />
@@ -661,7 +659,6 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductTilePricebookEntry" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingService" />
@@ -680,10 +677,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_SummaryCart" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ToastService" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_UpdatePrice" />
@@ -708,6 +705,14 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="setStartUrl" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderPage" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderProductTile" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>
@@ -1597,6 +1602,9 @@
                             <option name="name" value="Number_of_Ambulances" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Order" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Overlapping_with" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1678,6 +1686,9 @@
                             <option name="name" value="Sent_to" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Shopping_Cart" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Speciality" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1705,6 +1716,9 @@
                             <option name="name" value="Text" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Total_Order_Amount" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Update_Price_Book" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1715,6 +1729,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Yes" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Your_shopping_cart_is_empty" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="about_overalapped_page" />
