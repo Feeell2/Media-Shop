@@ -110,7 +110,6 @@
           let state=response.getState();
           let result = response.getReturnValue();
           if(state==='SUCCESS'){
-              console.log(result);
               component.set('v.dataToDelivery',result);
           }
     })
@@ -140,11 +139,12 @@
           if(state==='SUCCESS'){
               this.navigate(component,event);
               this.showToast(component,event,"Order created",'Success');
+          }else{
+              this.showToast(component,event,"Order not created ",'Error');
           }
     })
     $A.enqueueAction(action);
         }else{
-            console.log('error')
             this.showToast(component,event,"Fill in all fields",'Error');
         };
     },

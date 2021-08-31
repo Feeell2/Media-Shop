@@ -37,4 +37,12 @@
         helper.saveOrderHelper(component,event);
     },
 
+    showConfirmDialog:function(component,event,helper){
+        component.set('v.isDisplayDialog',true);
+    },
+
+    hideConfirmDialog:function(component,event,helper){
+        component.set('v.isDisplayDialog',false);
+    },
+
 })

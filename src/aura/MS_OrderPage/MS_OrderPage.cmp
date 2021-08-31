@@ -13,6 +13,7 @@
     <aura:attribute name="type" type="String"/>
     <aura:attribute name="message" type="String"/>
     <aura:attribute name="spinner" type="boolean" default="true"/>
+    <aura:attribute name="isDisplayDialog" type="boolean" default="false"/>
     <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastCreatedOrder"/>
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
 
@@ -27,7 +28,7 @@
     </aura:if>
 
     <aura:if isTrue="{!v.isSummaryOrder}">
-        <h1 class="slds-card__header-title">Summary Order</h1>
+        <h1 class="slds-card__header-title">{!$Label.c.Summary_Order}</h1>
         <div style="width:80%;margin:0 auto">
             <aura:iteration items="{!v.list_products}" var="product">
                 <div class="slds-container_center" style="width:100%;margin:5px 15px">
@@ -37,11 +38,10 @@
             <div style="width:100%;margin:5px 15px" class="slds-box_border productInfo">
                 <div class="slds-grid slds-grid_vertical ">
                     <div class="slds-grid slds-grid_align-center slds-p-around_medium" style="width: 100%">
-                        <h1>Total Price: <span style="font-size:30px!important">{!v.sumPrice}$</span></h1>
+                        <h1>{!$Label.c.Total_Price} <span style="font-size:30px!important">{!v.sumPrice}$</span></h1>
                     </div>
                     <div class="slds-grid slds-m-around_medium slds-grid_align-end">
-                        <lightning:button label="Previous" onclick="{!c.previousStep}"/>
-                        <lightning:button label="Next" onclick="{!c.nextStep}"/>
+                        <lightning:button label="{!$Label.c.next}" onclick="{!c.nextStep}"/>
                     </div>
                 </div>
             </div>
@@ -49,65 +49,67 @@
 
     </aura:if>
     <aura:if isTrue="{!v.isDetailOrder==true}">
-        <h1 class="slds-card__header-title">Address and Payment Method</h1>
+        <h1 class="slds-card__header-title">{!$Label.c.Address_and_Payment_Method}</h1>
         <div style="width:80%;margin:0 auto">
             <div>
                 <div class="slds-grid slds-gutters">
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.firstName}" label="First name" name="firstName"
+                        <lightning:input value="{!v.dataToDelivery.firstName}" label="{!$Label.c.First_NameF}" name="firstName"
                                          required="true"/>
                     </div>
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.lastName}" label="Last name" name="lastName"/>
+                        <lightning:input value="{!v.dataToDelivery.lastName}" label="{!$Label.c.Last_Name}" name="lastName"/>
                     </div>
                 </div>
                 <div class="slds-grid slds-gutters">
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.email}" label="Email" name="Email"/>
+                        <lightning:input value="{!v.dataToDelivery.email}" label="{!$Label.c.e_mail}" name="Email"/>
                     </div>
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.city}" label="City" name="City"/>
-                    </div>
-                </div>
-                <div class="slds-grid slds-gutters">
-                    <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.state}" label="State" name="State"/>
-                    </div>
-                    <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.postalCode}" label="Postal code" name="postalCode"/>
+                        <lightning:input value="{!v.dataToDelivery.city}" label="{!$Label.c.City}" name="City"/>
                     </div>
                 </div>
                 <div class="slds-grid slds-gutters">
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.country}" label="Country" name="Country"/>
+                        <lightning:input value="{!v.dataToDelivery.state}" label="{!$Label.c.State}" name="State"/>
                     </div>
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.street}" label="Street" name="Street"/>
+                        <lightning:input value="{!v.dataToDelivery.postalCode}" label="{!$Label.c.Postal_Code}" name="postalCode"/>
                     </div>
                 </div>
                 <div class="slds-grid slds-gutters">
                     <div class=" slds-col productInput">
-                        <lightning:select aura:id="paymentMethod" onchange="{!c.paymentMethodHandlerHelper}" name="products" label="Payment Method">
-                            <option value="">Choose Payment Method</option>
-                            <option value="Cash">Cash</option>
-                            <option value="Card">Card</option>
+                        <lightning:input value="{!v.dataToDelivery.country}" label="{!$Label.c.countries}" name="Country"/>
+                    </div>
+                    <div class=" slds-col productInput">
+                        <lightning:input value="{!v.dataToDelivery.street}" label="{!$Label.c.Street}" name="Street"/>
+                    </div>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class=" slds-col productInput">
+                        <lightning:select aura:id="paymentMethod" onchange="{!c.paymentMethodHandlerHelper}"
+                                          name="products" label="{!$Label.c.Payment_Method}">
+                            <option value="">{!$Label.c.Choose_Payment_Method}</option>
+                            <option value="Cash">{!$Label.c.Cash}</option>
+                            <option value="Credit card">{!$Label.c.Credit_card}</option>
                         </lightning:select>
                     </div>
                     <div class="slds-col productInput">
-                        <lightning:select aura:id="deliveryMethod" onchange="{!c.deliveryMethodHandlerHelper}" name="products" label="Delivery Method">
-                            <option value="">Choose Delivery Method</option>
-                            <option value="Delivery Man">Delivery Man</option>
-                            <option value="Parcel Locker">Parcel locker</option>
+                        <lightning:select aura:id="deliveryMethod" onchange="{!c.deliveryMethodHandlerHelper}"
+                                          name="products" label="{!$Label.c.Delivery_Method}">
+                            <option value="">{!$Label.c.Choose_Delivery_Method}</option>
+                            <option value="Delivery Man">{!$Label.c.Delivery_Man}</option>
+                            <option value="Parcel locker">{!$Label.c.Parcel_locker}</option>
                         </lightning:select>
                     </div>
                 </div>
             </div>
             <div class="slds-grid slds-m-around_medium slds-grid_align-end">
-                <lightning:button label="Previous" onclick="{!c.previousStep}"/>
+                <lightning:button label="{!$Label.c.previous}" onclick="{!c.previousStep}"/>
                 <aura:if isTrue="{!v.paymentMethod!='Cash'}">
-                <lightning:button label="Next" onclick="{!c.nextStep}"/>
+                    <lightning:button label="{!$Label.c.next}" onclick="{!c.nextStep}"/>
                     <aura:set attribute="else">
-                        <lightning:button label="Order" onclick="{!c.saveOrderHandler}"/>
+                        <lightning:button label="{!$Label.c.order}" onclick="{!c.showConfirmDialog}"/>
                     </aura:set>
                 </aura:if>
             </div>
@@ -116,7 +118,7 @@
 
     </aura:if>
     <aura:if isTrue="{!v.isChooseBankOrder==true}">
-        <h1 class="slds-card__header-title">Chose Bank</h1>
+        <h1 class="slds-card__header-title">{!$Label.c.Choose_Bank}</h1>
         <div style="width:80%;margin:0 auto">
             <div class="slds-grid slds-wrap slds-grid_align-center">
                 <div class="slds-grid slds-gutters">
@@ -145,9 +147,29 @@
                 </div>
             </div>
             <div class="slds-grid slds-m-around_medium slds-grid_align-end">
-                <lightning:button label="Previous" onclick="{!c.previousStep}"/>
-                <lightning:button label="Order" onclick="{!c.saveOrderHandler}"/>
+                <lightning:button label="{!$Label.c.previous}" onclick="{!c.previousStep}"/>
+                <lightning:button label="{!$Label.c.order}" onclick="{!c.showConfirmDialog}"/>
             </div>
         </div>
+    </aura:if>
+    <aura:if isTrue="{!v.isDisplayDialog}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!$Label.c.Confirm_Order}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p>{!$Label.c.Do_you_want_to_add_an_order}</p>
+
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick="{!c.hideConfirmDialog}">{!$Label.c.cancel}</button>
+                    <button class="slds-button slds-button_brand" onclick="{!c.saveOrderHandler}">{!$Label.c.save}</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
     </aura:if>
 </aura:component>
