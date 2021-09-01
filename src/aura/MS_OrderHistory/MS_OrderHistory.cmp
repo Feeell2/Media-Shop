@@ -40,7 +40,7 @@
         <aura:iteration items="{!v.list_products}" var="order">
         <tr class="slds-hint-parent">
             <th data-label="{!$Label.c.Order_Number}" scope="row">
-                <div style="color:#008ad1;cursor:pointer" data-value="{!order.Idl}" onclick="{!c.navigateToOrder}" class="slds-truncate" title="{!$Label.c.Order_Number}">
+                <div style="color:#008ad1;cursor:pointer" data-value="{!order.Id}" onclick="{!c.navigateToOrder}" class="slds-truncate" title="{!$Label.c.Order_Number}">
                     {!order.OrderNumber}
                 </div>
             </th>
