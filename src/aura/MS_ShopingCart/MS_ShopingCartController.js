@@ -1,19 +1,9 @@
 ({
-    getProductsToList:function(component,event,helper){
-              let action = component.get('c.getProductsToCart');
-              action.setCallback(this, function(response) {
-                let state=response.getState();
-                let result = response.getReturnValue();
-                if(state==='SUCCESS'){
-                    component.set('v.listProducts',result.products);
-                }
-                component.set('v.spinner',false);
-              })
-              $A.enqueueAction(action);
+    init:function(component,event,helper){
+        helper.initDo(component,event);
     },
 
     getProductsFromEvent:function(component,event,helper){
-       let list = event.getParam("list_products");
-       component.set('v.listProducts',list);
+        helper.getProductsFromEventHelper(component,event);
     },
 })
