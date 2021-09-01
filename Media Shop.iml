@@ -256,13 +256,11 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_Comment" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_ProductSearch" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingController" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RegisterHandler" />
@@ -474,7 +472,6 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ContentDocumentLinkTrigger" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>
@@ -620,9 +617,11 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_Comments" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_CommentTile" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_deleteProductEvent" />
@@ -635,20 +634,20 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductSearchBox" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductSelectModal" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductTile" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingService" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingTile" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ShopingCart" />
@@ -1572,9 +1571,6 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="No_recent_records" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="No_result_for_these_criteria_search" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="not_found_results" />

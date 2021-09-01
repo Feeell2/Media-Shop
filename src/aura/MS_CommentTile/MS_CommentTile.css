@@ -1,0 +1,19 @@
+.THIS {
+    width:100%;
+    padding-top:0 !important;
+}
+.THIS .slds-card__header {
+display:none
+}
+.THIS .slds-card__body {
+
+margin-top:0 !important;
+}
+
+
+.THIS .infoComment {
+    font-size:12px;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-left:20px;
+}
