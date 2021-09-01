@@ -6,11 +6,7 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>MS_MangerPriceBook</members>
-        <members>MS_ProductAddOrEditProduct</members>
-        <members>MS_ProductAddingModal</members>
-        <members>MS_ProductListView</members>
-        <members>MS_ProductTilePricebookEntry</members>
+        <members>MS_OrderHistory</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

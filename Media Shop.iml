@@ -258,6 +258,19 @@
                             <option name="name" value="MS_Comment" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="MS_LeadSendOffer" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderHandler" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderHistory" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductAdding" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="MS_ProductSearch" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
@@ -595,12 +608,6 @@
                             <option name="name" value="MA_MovieTile" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MA_SearchBox" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MA_SearchForm" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="MA_SearchMoviesEvent" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -628,21 +635,38 @@
                             <option name="name" value="MS_deleteProductEvent" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="MS_MangerPriceBook" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderHistory" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderPage" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderProductTile" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductAddingModal" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductAddOrEditProduct" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductListView" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="MS_ProductPhotoSlider" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductRefreshSlider" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_ProductSearchBox" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="MS_ProductSelectModal" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_ProductTile" />
-                            <option name="selected" value="true" />
+                            <option name="name" value="MS_ProductTilePricebookEntry" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingService" />
@@ -654,16 +678,19 @@
                             <option name="name" value="MS_ShopingCart" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="MS_ShopingCartIcon" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="MS_ShoppingCartTile" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_SummaryCart" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_ToastService" />
+                            <option name="name" value="MS_UpdatePrice" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_UpdatePrice" />
+                            <option name="name" value="MS_UpdateQuantityInCart" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="selfRegister" />
@@ -802,6 +829,9 @@
                       <option name="entries">
                         <list>
                           <MetadataEntry>
+                            <option name="name" value="gradientsmoothbluelinesbackground_2" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="MediaLogo" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -812,6 +842,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="mediashopgutschein" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="mediashopgutschein1" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="movie" />
@@ -1229,6 +1262,15 @@
                             <option name="name" value="Opportunity.TrackingNumber__c" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Order.Delivery_Method__c" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Order.Payment_Bank__c" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Order.Payment_Method__c" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Pricebook2.discount__c" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1322,6 +1364,9 @@
                             <option name="name" value="Address" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Address_and_Payment_Method" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Are_you_sure_you_want_to_delete_this_Price_Book" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1331,10 +1376,22 @@
                             <option name="name" value="cancel" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Cash" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Change_Price_only_selected_Products" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Choose_Bank" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Choose_Delimer" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Choose_Delivery_Method" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Choose_Payment_Method" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Choose_Products" />
@@ -1353,6 +1410,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Confirm_delete_doctor" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Confirm_Order" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Confirmation" />
@@ -1376,6 +1436,9 @@
                             <option name="name" value="Create_a_Price_Book" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Credit_card" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Crop_Photo" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1388,6 +1451,12 @@
                             <option name="name" value="Delete" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Delivery_Man" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Delivery_Method" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Description" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1398,6 +1467,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Do_you_want_delete" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Do_you_want_to_add_an_order" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Doctor" />
@@ -1433,6 +1505,9 @@
                             <option name="name" value="Edit_Price_Book" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Effective_Date" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="email_sent_to" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1461,6 +1536,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="File_is_bigger" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Fill_in_all_fields" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="First" />
@@ -1592,10 +1670,28 @@
                             <option name="name" value="Number_of_Ambulances" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Order" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Order_created" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Order_not_created" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Order_Number" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Overlapping_with" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Parcel_locker" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Part_Time" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Payment_Method" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Percentage_of_the_price" />
@@ -1688,6 +1784,12 @@
                             <option name="name" value="Sent_to" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Shipping_Address" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Shopping_Cart" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="showing" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -1698,6 +1800,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Start_of_career" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="State" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Status" />
@@ -1715,10 +1820,22 @@
                             <option name="name" value="Success" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Summary_Order" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Supervisor" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Text" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Total_Amount" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Total_Order_Amount" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Total_Price" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Update_Price_Book" />
@@ -1740,6 +1857,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Yes" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Your_shopping_cart_is_empty" />
                           </MetadataEntry>
                         </list>
                       </option>
@@ -3361,7 +3481,13 @@
                             <option name="name" value="OpportunityLineItem-Opportunity Product Layout" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="Order-Community Order" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="Order-Order Layout" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="OrderItem-Order Product Community" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="OrderItem-Order Product Layout" />
@@ -5312,6 +5438,13 @@
                       <option name="wildcard" value="false" />
                     </MetadataType>
                     <MetadataType>
+                      <option name="entries">
+                        <list>
+                          <MetadataEntry>
+                            <option name="name" value="Access_to_Contact" />
+                          </MetadataEntry>
+                        </list>
+                      </option>
                       <option name="name" value="SharingSet" />
                       <option name="wildcard" value="false" />
                     </MetadataType>
@@ -5526,6 +5659,9 @@
                       <option name="entries">
                         <list>
                           <MetadataEntry>
+                            <option name="name" value="Alior" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="blankPhoto" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -5535,7 +5671,16 @@
                             <option name="name" value="blankProduct" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="BNP" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="fivestar" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="ING" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="IPKO" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="Jcrop" />
@@ -5557,6 +5702,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="NoHeader" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="Pocztowy" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="SiteSamples" />
