@@ -1,4 +1,0 @@
-<design:component>
-    <design:attribute name="blueBackground" label="Blue Background"/>
-    <design:attribute name="smallLogo" label="Small Logo"/>
-</design:component>

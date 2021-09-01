@@ -255,14 +255,6 @@
                             <option name="name" value="MA_Wrappers" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_Comment" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
-                            <option name="name" value="MS_RatingController" />
-                            <option name="selected" value="true" />
-                          </MetadataEntry>
-                          <MetadataEntry>
                             <option name="name" value="MS_RegisterHandler" />
                           </MetadataEntry>
                           <MetadataEntry>
@@ -300,6 +292,22 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="testAccountHierarchy" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_TriggerFactory" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ITriggerInterface" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_CaseHandler" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_CaseAssignmentToServiceChanel" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>
@@ -471,7 +479,8 @@
                             <option name="name" value="HA_HospitalIntegrationTrigger" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_ContentDocumentLinkTrigger" />
+                            <option name="name" value="MS_CaseTrigger" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>
