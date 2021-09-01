@@ -44,12 +44,12 @@
         action.setCallback(this, function(response) {
             let state=response.getState();
             let result = response.getReturnValue();
-             console.log(state)
             if(state==='SUCCESS'){
                 cmpEvent.setParams({
                     list_products:result.products,
                 })
-                this.showToast(component,event,"Deleted product from cart","success");
+                component.set('v.message',$A.get("$Label.c.Deleted_product_from_cart"))
+                this.showToast(component,event,"Success");
                cmpEvent.fire();
                updateEvent.fire();
                updateQuantityEvent.fire();
@@ -77,9 +77,8 @@
         $A.enqueueAction(action);
     },
 
-    showToast : function(component, event,message,typeToast) {
+    showToast : function(component, event,typeToast) {
              component.set("v.type", typeToast);
-             component.set("v.message", message);
              let childComponent = component.find("toastComponentProduct");
              let fireToast = childComponent.toast();
     },

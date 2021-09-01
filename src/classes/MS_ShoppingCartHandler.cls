@@ -20,7 +20,6 @@ public with sharing class MS_ShoppingCartHandler {
             sessionPartition.put(keyInput, JSON.serialize(newCart));
         }
         String sessionValue=(String)sessionPartition.get(keyInput);
-        System.debug(sessionValue);
         Cart sessionCart = (Cart) JSON.deserialize(sessionValue, Cart.class);
         return  sessionCart;
     }
@@ -42,15 +41,12 @@ public with sharing class MS_ShoppingCartHandler {
     public static Cart deleteProduct(String id) {
         String partitionInput = 'local.ShoppingCart';
         String keyInput = 'Cart';
-        System.debug(id);
         Cache.SessionPartition sessionPartition = Cache.Session.getPartition(partitionInput);
         String sessionBody = (String) sessionPartition.get(keyInput);
         Cart cartFromSession = (Cart) JSON.deserialize(sessionBody, Cart.class);
-        System.debug(id);
         for (Integer i = 0; i < cartFromSession.products.size(); i++){
             if(cartFromSession.products.get(i).product.Product2Id==id){
                 sessionPartition.remove(keyInput);
-                System.debug('dziala cos');
                 cartFromSession.products.remove(i);
                 sessionPartition.put(keyInput, JSON.serialize(cartFromSession));
             }
