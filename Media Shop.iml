@@ -310,6 +310,10 @@
                           <MetadataEntry>
                             <option name="name" value="testAccountHierarchy" />
                           </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderHistory" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
                         </list>
                       </option>
                       <option name="name" value="ApexClass" />
@@ -708,6 +712,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="setStartUrl" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_OrderHistory" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>
