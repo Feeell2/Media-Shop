@@ -26,6 +26,6 @@
         var inputVariables = [
             {name : "orderId", type : "String", value: orderId}
         ];
-        flow.startFlow('Create_Case_in_Order_History', inputVariables);
+        flow.startFlow('Create_Case_Order_History', inputVariables);
     },
 })
