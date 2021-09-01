@@ -21,7 +21,7 @@
             component.set("v.showOrderHistoryTable", true);
 
             component.set('v.message',$A.get("$Label.c.Case_Created"));
-            helper.showToast(component,event,"Success");
+            this.showToast(component,event,"Success");
        }
     },
 
@@ -29,5 +29,27 @@
           component.set("v.type", typeToast);
           let childComponent = component.find("toastComponentProductTile");
           let fireToast = childComponent.toast();
+    },
+
+    contactUsHelper:function(component,event){
+        component.set("v.showOrderHistoryTable", false);
+        let ctarget = event.currentTarget;
+        let orderId = ctarget.dataset.value;
+        var flow = component.find('flowData');
+        var inputVariables = [
+            {name : "orderId", type : "String", value: orderId}
+        ];
+        flow.startFlow('Create_Case_Order_History', inputVariables);
+    },
+
+    navigateToOrderHelper:function(component,event){
+        let ctarget = event.currentTarget;
+        let orderId = ctarget.dataset.value;
+        var navEvt = $A.get("e.force:navigateToSObject");
+        navEvt.setParams({
+          "recordId": orderId,
+          "slideDevName": "related"
+        });
+        navEvt.fire();
     },
 })
