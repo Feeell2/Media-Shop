@@ -11,6 +11,7 @@
         <members>MS_ProductAddingModal</members>
         <members>MS_ProductListView</members>
         <members>MS_ProductTilePricebookEntry</members>
+        <members>MS_ProductTilePricebookEntry</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" description="MS_ProductRecentlyViews" controller="MS_ProductRecentlyView">
+    <aura:attribute name="listProduct" type="List" default="[]" />
+    <aura:attribute name="spinner" type="boolean" default="true" />
+    <aura:attribute name="userType" type="String" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:if isTrue="{!v.spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading...</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+        <lightning:card title="{!$Label.c.Recently_Viewed}">
+            <aura:iteration items="{!v.listProduct}" var="product">
+                <div class="slds-container_center" style="width:100%;margin:5px 15px">
+                    <c:MS_ProductTile product="{!product}" userType="{!v.userType}"/>
+                </div>
+            </aura:iteration>
+        </lightning:card>
+</aura:component>

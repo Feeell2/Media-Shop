@@ -4,25 +4,32 @@
     <aura:attribute name="disableAddToCart" type="Boolean" default="false"/>
     <aura:attribute name="type" type="String"/>
     <aura:attribute name="message" type="String"/>
+    <aura:attribute name="userType" type="String" default=""/>
     <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastComponentProductTile"/>
-    <aura:handler name="init" value="{!this}" action="{!c.getProductsToList}" />
-    <div class="slds-box_border productInfo" >
+    <aura:handler name="init" value="{!this}" action="{!c.getProductsToList}"/>
+    <div class="slds-box_border productInfo">
 
         <div class="slds-grid">
             <div class="slds-grid  slds-p-around_medium" style="width: 100%">
-                <img onclick="{!c.createRecord}" class="imgClick" src="{!if(v.product.Product2.Photo_Id__c!=null,'/sfc/servlet.shepherd/version/download/'+v.product.Product2.Photo_Id__c,$Resource.blankProduct)}"
+                <img onclick="{!c.createRecord}" class="imgClick"
+                     src="{!if(v.product.Product2.Photo_Id__c!=null,'/sfc/servlet.shepherd/version/download/'+v.product.Product2.Photo_Id__c,$Resource.blankProduct)}"
                      alt="" style="width:150px;height:150px;"/>
                 <div class="slds-m-left_large" style="color:black">
-                    <h1  style="font-size:20px!important; text-align:left">{!v.product.Product2.Name}</h1>
+                    <h1 style="font-size:20px!important; text-align:left">{!v.product.Product2.Name}</h1>
                     <div style="font-size:12px;" class="slds-grid">
-                        <h1 class="slds-m-right_large"><span class="information">{!$Label.c.Brand}: </span> {!v.product.Product2.brand__c}</h1>
-                        <h1 class="slds-m-left_large"><span class="information">{!$Label.c.Model}: </span> {!v.product.Product2.model__c}</h1>
+                        <h1 class="slds-m-right_large"><span class="information">{!$Label.c.Brand}
+                            : </span> {!v.product.Product2.brand__c}</h1>
+                        <h1 class="slds-m-left_large"><span class="information">{!$Label.c.Model}
+                            : </span> {!v.product.Product2.model__c}</h1>
                     </div>
                     <h1 style="font-size:30px!important; text-align:left; font-weight:bold">{!v.product.UnitPrice}$</h1>
                 </div>
             </div>
             <div class="slds-align-middle slds-m-right_large">
-            <lightning:button disabled="{!v.disableAddToCart}" label="{!$Label.c.Add}" onclick="{!c.addProductToCart}" />
+                <aura:if isTrue="{!v.userType!='Guest'}">
+                    <lightning:button disabled="{!v.disableAddToCart}" label="{!$Label.c.Add}"
+                                      onclick="{!c.addProductToCart}"/>
+                </aura:if>
             </div>
         </div>
     </div>
