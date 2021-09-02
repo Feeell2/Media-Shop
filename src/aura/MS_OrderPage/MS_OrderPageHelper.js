@@ -78,7 +78,6 @@
         action.setParams({
             amountOrder:component.get('v.sumPrice'),
         })
-        console.log(wrapper)
         action.setCallback(this, function(response) {
           let state=response.getState();
           let result = response.getReturnValue();
@@ -103,19 +102,6 @@
     $A.enqueueAction(action);
     },
 
-    deliveryMethodHandlerHelper:function(component,event){
-        let wrapper=component.get('v.dataToDelivery');
-        let action=component.get('c.getContactDetails');
-        action.setCallback(this, function(response) {
-          let state=response.getState();
-          let result = response.getReturnValue();
-          if(state==='SUCCESS'){
-              component.set('v.dataToDelivery',result);
-          }
-    })
-    $A.enqueueAction(action);
-    },
-
     saveOrderHelper:function(component,event){
         let idOrder=component.get('v.idOrder')
         let paymentMethod=component.get('v.paymentMethod')
@@ -134,18 +120,21 @@
         })
         if(!this.validateField(component)&&isBankChoose==false||(!this.validateField(component)&&isBankChoose==true&&bankChoose!='')){
         action.setCallback(this, function(response) {
-          let state=response.getState();
-          let result = response.getReturnValue();
-          if(state==='SUCCESS'){
-              this.navigate(component,event);
-              this.showToast(component,event,"Order created",'Success');
-          }else{
-              this.showToast(component,event,"Order not created ",'Error');
-          }
+            let state=response.getState();
+            let result = response.getReturnValue();
+            if(state==='SUCCESS'){
+                this.navigate(component,event);
+                component.set('v.message',$A.get("$Label.c.Order_created"));
+                this.showToast(component,event,'Success');
+            }else{
+                component.set('v.message',$A.get("$Label.c.Order_not_created"));
+                this.showToast(component,event,'Error');
+            }
     })
     $A.enqueueAction(action);
         }else{
-            this.showToast(component,event,"Fill in all fields",'Error');
+            component.set('v.message',$A.get("$Label.c.Fill_in_all_fields"));
+            this.showToast(component,event,'Error');
         };
     },
 
@@ -154,7 +143,6 @@
         let isBankChoose=component.get('v.isChooseBankOrder');
         let isEmptyField=false;
         for (const field in deliveryData){
-            console.log(field+' '+deliveryData[field]);
             if(deliveryData[field]==undefined||deliveryData[field]==""){
                 isEmptyField=true;
             };
@@ -162,19 +150,18 @@
         return isEmptyField;
     },
 
-    showToast : function(component, event,message,typeToast) {
+    showToast : function(component, event,typeToast) {
        component.set("v.type", typeToast);
-       component.set("v.message", message);
        let childComponent = component.find("toastCreatedOrder");
        let fireToast = childComponent.toast();
     },
 
     navigate : function(component, event) {
-           let address = '/searchbox';
-           let urlEvent = $A.get("e.force:navigateToURL");
-           urlEvent.setParams({
-             "url": address,
-           });
-           urlEvent.fire();
+        let address = '/searchbox';
+        let urlEvent = $A.get("e.force:navigateToURL");
+        urlEvent.setParams({
+          "url": address,
+        });
+        urlEvent.fire();
     },
 })

@@ -1,7 +1,6 @@
 ({
     init:function(component,event,helper){
         helper.getProductsToList(component,event);
-//        helper.createOrderHelper(component,event);;
     },
 
     nextStep:function(component,event,helper){
