@@ -256,21 +256,25 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_Comment" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_ProductRecentlyView" />
-                            <option name="selected" value="true" />
+                            <option name="name" value="MS_LeadSendOffer" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductAdding" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductSearch" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingController" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RegisterHandler" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ShoppingCartHandler" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MyProfilePageController" />
@@ -621,21 +625,31 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_Comments" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_CommentTile" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_deleteProductEvent" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_ProductPhotoSlider" />
+                            <option name="name" value="MS_MangerPriceBook" />
                           </MetadataEntry>
                           <MetadataEntry>
-                            <option name="name" value="MS_ProductRecentlyViews" />
+                            <option name="name" value="MS_MediaShopThemeLayout" />
                             <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductAddingModal" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductAddOrEditProduct" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductListView" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductPhotoSlider" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductRefreshSlider" />
@@ -651,27 +665,37 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
+                            <option name="name" value="MS_ProductTilePricebookEntry" />
+                          </MetadataEntry>
+                          <MetadataEntry>
                             <option name="name" value="MS_RatingService" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingTile" />
-                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ShopingCart" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ShopingCartIcon" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ShoppingCartTile" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_SummaryCart" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ToastService" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_UpdatePrice" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="selfRegister" />
@@ -681,6 +705,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="setStartUrl" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_UpdateQuantityInCart" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
                       </option>
@@ -1580,6 +1608,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="No_recent_records" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="No_result_for_these_criteria_search" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="not_found_results" />
