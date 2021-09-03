@@ -256,6 +256,9 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_Comment" />
+<<<<<<< HEAD
+                            <option name="selected" value="true" />
+=======
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_LeadSendOffer" />
@@ -265,9 +268,11 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductSearch" />
+>>>>>>> MS_#5
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingController" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RegisterHandler" />
@@ -625,6 +630,16 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_Comments" />
+<<<<<<< HEAD
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_CommentTile" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_deleteProductEvent" />
+=======
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_CommentTile" />
@@ -647,6 +662,7 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductListView" />
+>>>>>>> MS_#5
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ProductPhotoSlider" />
@@ -665,13 +681,18 @@
                             <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
+<<<<<<< HEAD
+=======
                             <option name="name" value="MS_ProductTilePricebookEntry" />
                           </MetadataEntry>
                           <MetadataEntry>
+>>>>>>> MS_#5
                             <option name="name" value="MS_RatingService" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_RatingTile" />
+                            <option name="selected" value="true" />
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_ShopingCart" />
@@ -695,7 +716,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_UpdatePrice" />
+<<<<<<< HEAD
+=======
                             <option name="selected" value="true" />
+>>>>>>> MS_#5
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="selfRegister" />
@@ -1610,9 +1634,12 @@
                             <option name="name" value="No_recent_records" />
                           </MetadataEntry>
                           <MetadataEntry>
+<<<<<<< HEAD
+=======
                             <option name="name" value="No_result_for_these_criteria_search" />
                           </MetadataEntry>
                           <MetadataEntry>
+>>>>>>> MS_#5
                             <option name="name" value="not_found_results" />
                           </MetadataEntry>
                           <MetadataEntry>

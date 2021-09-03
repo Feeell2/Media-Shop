@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>48.0</apiVersion>
+<<<<<<< HEAD:src/aura/MS_Comments/MS_Comments.cmp-meta.xml
+    <description>MS_Comments</description>
+=======
     <description>MS_ShopingCart</description>
+>>>>>>> MS_#5:src/aura/MS_ShopingCart/MS_ShopingCart.cmp-meta.xml
 </AuraDefinitionBundle>

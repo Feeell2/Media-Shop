@@ -1,5 +1,22 @@
 ({
     addToCartHelper:function(component,event){
+<<<<<<< HEAD
+    var action = component.get('c.addProductToCache');
+            action.setParams({
+              product:component.get('v.product'),
+              quantity:"1",
+            })
+
+            action.setCallback(this, function(response) {
+             let state=response.getState();
+             let result = response.getReturnValue();
+             if(state==='SUCCESS'){
+             this.showToast(component,event,"Added To Cart","success");
+             this.getProductsToListHelper(component,event);
+             }
+            })
+            $A.enqueueAction(action);
+=======
     var updateQuantityEvent = $A.get("e.c:MS_UpdateQuantityInCart");
     var action = component.get('c.addProductToCache');
         action.setParams({
@@ -20,6 +37,7 @@
          }
         })
         $A.enqueueAction(action);
+>>>>>>> MS_#5
     },
 
     getProductsToListHelper:function(component,event){
@@ -44,6 +62,14 @@
           }
         }
     },
+<<<<<<< HEAD
+    showToast : function(component, event,message,typeToast) {
+          component.set("v.type", typeToast);
+          component.set("v.message", message);
+          let childComponent = component.find("toastComponentProductTile");
+          let fireToast = childComponent.toast();
+      },
+=======
 
     showToast : function(component, event,typeToast) {
         component.set("v.type", typeToast);
@@ -61,4 +87,5 @@
         navEvt.fire();
         this.getProductsToListHelper(component, event);
     },
+>>>>>>> MS_#5
 })
