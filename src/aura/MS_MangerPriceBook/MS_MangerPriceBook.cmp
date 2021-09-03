@@ -1,0 +1,420 @@
+<aura:component controller="MS_ProductAdding" implements="flexipage:availableForAllPageTypes"
+                description="MS_MangerPriceBook">
+    <ltng:require styles="{!$Resource.NoHeader}"/>
+    <aura:attribute name="name" type="String" default=""/>
+    <aura:attribute name="discount" type="String" default=""/>
+    <aura:attribute name="nameToUpdate" type="String" default=""/>
+    <aura:attribute name="discountToUpdate" type="String" default=""/>
+    <aura:attribute name="productsToPriceBook" type="List" default="[]"/>
+    <aura:attribute name="listOfPriceBooks" type="List" default="[]"/>
+    <aura:attribute name="listStandardPriceBook" type="List" default="[]"/>
+    <aura:attribute name="listProductsToModal" type="List" default="[]"/>
+    <aura:attribute name="originallyProductsToModal" type="List" default="[]"/>
+    <aura:attribute name="idStandardPriceBooks" type="String"/>
+    <aura:attribute name="idPriceBooks" type="String"/>
+    <aura:attribute name="nameDisplayedPriceBook" type="String"/>
+    <aura:attribute name="discountFromPriceBook" type="String"/>
+    <aura:attribute name="isActive" type="Boolean"/>
+    <aura:attribute name="isOpenModal" type="Boolean" default="false"/>
+    <aura:attribute name="isEditModal" type="Boolean" default="false"/>
+    <aura:attribute name="isOpenAddProductModal" type="Boolean" default="false"/>
+    <aura:attribute name="selectedProduct" type="String[]"/>
+    <aura:attribute name="isSelectedMode" type="Boolean" default="false"/>
+    <aura:attribute name="wrapperToSend" type="String" default=""/>
+    <aura:attribute name="addMode" type="boolean" default="false"/>
+    <aura:attribute name="editPriceForSelectedProductStep" type="boolean" default="false"/>
+    <aura:attribute name="selectProductToUpdate" type="boolean" default="false"/>
+    <aura:attribute name="editPriceProducts" type="boolean" default="false"/>
+    <aura:attribute name="changePriceForAllProducts" type="boolean" default="false"/>
+    <aura:attribute name="isSelectAll" type="boolean" default="false"/>
+    <aura:attribute name="spinner" type="boolean" default="true"/>
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="message" type="String"/>
+
+    <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastComponent"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <aura:if isTrue="{!v.spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading...</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem padding="around-small" size="12">
+            <lightning:card class="slds-container_center" title="{!$Label.c.Create_a_Price_Book}">
+
+                <div class="slds-grid slds-container_center" style="width:700px">
+                    <lightning:layoutItem size="6">
+                        <lightning:input class="slds-m-right_large" required="true" value="{!v.name}" name="name"
+                                         label="{!$Label.c.Name}"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="3">
+                        <lightning:input class="slds-m-right_large" required="true" value="{!v.discount}" name="name"
+                                         label="{!$Label.c.Percentage_of_the_price}"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-align-bottom" size="2">
+                        <lightning:button name="name" value="Add" label="{!$Label.c.Add_Product}"
+                                          onclick="{!c.handleOpenDialogToAdd}"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem class="slds-align-bottom" size="2">
+                        <lightning:button label="{!$Label.c.Add}" variant="brand"
+                                          class="slds-m-top_small"
+                                          onclick="{!c.addPriceBook}"
+                        />
+                    </lightning:layoutItem>
+                </div>
+            </lightning:card>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="" size="12">
+            <lightning:layout>
+
+                <lightning:layoutItem padding="horizontal-small" size="2">
+                    <lightning:card class="slds-p-around_small" title="{!$Label.c.List_of_Price_Books}">
+                        <ui:scrollerWrapper class="scrollerSize">
+                            <!--Scrollable content here -->
+
+                            <aura:iteration items="{!v.listOfPriceBooks}" var="priceBook">
+                                <div data-value="{!priceBook.Id}"
+                                     id="{!priceBook.Id}" class="slds-container_center" style="width:100%"
+                                     onclick="{!c.setDiplayPriceBook}">
+                                    <lightning:button value="{!priceBook.Id}"
+                                                      class="priceBookBtn">{!priceBook.Name}</lightning:button>
+                                </div>
+                            </aura:iteration>
+                        </ui:scrollerWrapper>
+                    </lightning:card>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="horizontal-small" size="10">
+                    <lightning:card title="{!$Label.c.Detail}">
+                        <div class="slds-p-around_medium">
+                            <h1 style="font-size:15px">{!$Label.c.Name}: <span
+                                    style="font-weight:bold">{!v.nameDisplayedPriceBook}</span></h1>
+                            <h1 style="font-size:15px">{!$Label.c.Percentage_of_the_price}: <span style="font-weight:bold">{!v.discountFromPriceBook} %</span>
+                            </h1>
+                            <aura:if isTrue="{!v.nameDisplayedPriceBook!='Standard Price Book'}">
+                            <div class="slds-grid slds-m-top_medium">
+                                <lightning:button onclick="{!c.handleOpenDialogToDelete}" variant="destructive"
+                                                  label="Delete"/>
+                                <lightning:button name="name" label="Products Manager" value="Edit"
+                                                  onclick="{!c.handleOpenDialogToAdd}"/>
+                            </div>
+                            </aura:if>
+                        </div>
+                    </lightning:card>
+                    <lightning:card title="{!$Label.c.results}">
+                        <!--                    <lightning:card title="{!'Results of '+v.nameDisplayedPriceBook}">-->
+                        <aura:iteration items="{!v.productsToPriceBook}" var="product">
+                            <div class="slds-container_center" style="width:100%;margin:5px 15px">
+                                <c:MS_ProductTilePricebookEntry product="{!product}"/>
+                                <!--                                <c: product="{!product}"/>-->
+                            </div>
+                        </aura:iteration>
+                    </lightning:card>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <div class="slds-m-around_xx-large">
+        <aura:if isTrue="{!v.isOpenModal}">
+            <div role="dialog" class="slds-modal slds-fade-in-open ">
+                <div class="slds-modal__container">
+                    <aura:if isTrue="{!v.isEditModal==false}">
+                        <header class="slds-modal__header">
+                            <h1 class="slds-text-heading--medium">{!$Label.c.Confirmation}</h1>
+                        </header>
+                        <div class="slds-modal__content slds-p-around--medium">
+                            <center><b>{!$Label.c.Are_you_sure_you_want_to_delete_this_Price_Book}</b></center>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning:button name='No' label='{!$Label.c.No}' onclick='{!c.handleConfirmDialogNo}'/>
+                            <lightning:button variant="brand" name='Yes' label='{!$Label.c.Yes}'
+                                              onclick='{!c.handleConfirmDialogYes}'/>
+                        </footer>
+                        <aura:set attribute="else">
+                            <!--                            <header class="slds-modal__header">-->
+                            <!--                                <h1 class="slds-text-heading&#45;&#45;medium">Edit Price Book</h1>-->
+                            <!--                            </header>-->
+                            <!--                            <div class="slds-modal__content slds-p-around&#45;&#45;medium">-->
+                            <!--                                <lightning:input required="true" value="{!v.nameDisplayedPriceBook}" name="name"-->
+                            <!--                                                 label="Name"/>-->
+                            <!--                                <lightning:input required="true" value="{!v.discountFromPriceBook}" name="name"-->
+                            <!--                                                 label="Percentage of the price"/>-->
+                            <!--                            </div>-->
+                            <!--                            <footer class="slds-modal__footer">-->
+                            <!--                                <lightning:button name='No' label='No' onclick='{!c.handleConfirmDialogNo}'/>-->
+                            <!--                                <lightning:button variant="brand" name='Edit' label='Edit'-->
+                            <!--                                                  onclick='{!c.handleConfirmDialogToUpdate}'/>-->
+                            <!--                            </footer>-->
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+        </aura:if>
+        <aura:if isTrue="{!v.isOpenAddProductModal}">
+            <div role="dialog" class="slds-modal slds-fade-in-open ">
+                <div class="slds-modal__container">
+                    <aura:if isTrue="{!v.editPriceForSelectedProductStep}">
+                        <header class="slds-modal__header">
+                            <h1 class="slds-text-heading--medium">{!$Label.c.Edit_Price_Book}</h1>
+                        </header>
+                        <div class="slds-modal__content slds-p-around--medium">
+                            <lightning:input required="true" value="{!v.nameToUpdate}" name="name"
+                                             label="{!$Label.c.Name}"/>
+                            <lightning:input required="true" value="{!v.discountToUpdate}" name="name"
+                                             label="{!$Label.c.Percentage_of_the_price}"/>
+                            <lightning:input type="checkbox" checked="{!v.editPriceProducts}" onchange="{!c.handleChangeEditMode}"
+                                             label="{!$Label.c.Change_Price_only_selected_Products}" />
+<!--                            <lightning:input type="checkbox" checked="{!v.changePriceForAllProducts}" disabled="{!v.editPriceProducts==true}"-->
+<!--                                             label="Change Price for all Products" />-->
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning:button name='No' label='{!$Label.c.cancel}' onclick='{!c.handleCloseDialogToEdit}'/>
+                            <lightning:button variant="brand" name='Edit' label='{!$Label.c.Choose_Products}'
+                                              onclick='{!c.handleMoveToToUpdate}'/>
+                        </footer>
+                        <aura:set attribute="else">
+                            <div class="demo-only demo-only_viewport" style="height:640px">
+                                <section role="dialog" tabindex="-1"
+                                         class="slds-modal slds-fade-in-open slds-modal_large"
+                                         aria-labelledby="id-of-modalheader-h2" aria-modal="true"
+                                         aria-describedby="modal-content-id-1">
+                                    <div class="slds-modal__container">
+                                        <header class="slds-modal__header">
+                                            <h2 id="id-of-modalheader-h2" class="slds-text-heading_medium">{!$Label.c.Add_Product}</h2>
+                                        </header>
+
+                                        <div class="slds-modal__content slds-grid slds-nowrap" id="modal-content-id-1">
+                                            <div class="slds-col slds-grid slds-grid_vertical slds-nowrap">
+                                                <div class="slds-p-vertical_x-small slds-p-horizontal_large slds-shrink-none slds-theme_shade">
+                                                    <div class="slds-form-element">
+                                                        <aura:if isTrue="{!v.editPriceProducts==false}">
+                                                        <lightning:input type="checkbox" checked="{!v.isSelectAll}"
+                                                                         label="{!$Label.c.Select_All}" onchange="{!c.handleCheckAllRecord}"/>
+                                                        </aura:if>
+                                                        <label class="slds-form-element__label slds-assistive-text"
+                                                               for="combobox-unique-id-23">{!$Label.c.search}</label>
+                                                        <div class="slds-form-element__control">
+                                                            <div class="slds-combobox_container">
+                                                                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
+                                                                     aria-expanded="false" aria-haspopup="listbox"
+                                                                     role="combobox">
+
+                                                                    <div id="listbox-unique-id" role="listbox"
+                                                                         class="slds-dropdown slds-dropdown_fluid">
+                                                                        <ul class="slds-listbox slds-listbox_vertical"
+                                                                            role="presentation">
+                                                                            <li role="presentation"
+                                                                                class="slds-listbox__item">
+
+                                                                            </li>
+                                                                            <li role="presentation"
+                                                                                class="slds-listbox__item">
+                                                                                <div id="listbox-option-unique-id-02"
+                                                                                     class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                                                     role="option">
+
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="slds-scrollable slds-grow">
+                                                    <div class="slds-scrollable_none">
+                                                        <table aria-multiselectable="true"
+                                                               class="slds-table slds-no-row-hover slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols"
+                                                               role="grid" aria-label="Example product list">
+                                                            <thead>
+                                                            <tr class="slds-line-height_reset">
+                                                                <th class="" scope="col" style="width:3.75rem"></th>
+                                                                <th aria-label="Name" aria-sort="none"
+                                                                    class="slds-is-resizable slds-is-sortable"
+                                                                    scope="col">
+                                                                    <a class="slds-th__action slds-text-link_reset"
+                                                                       href="#"
+                                                                       role="button"
+                                                                       tabindex="-1">
+                                                                        <span class="slds-assistive-text">Sort by: </span>
+                                                                        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                                                <span class="slds-truncate"
+                                                                      title="Product Code">{!$Label.c.Name}</span>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="slds-resizable">
+                                                                        <input type="range"
+                                                                               aria-label="Name column width"
+                                                                               class="slds-resizable__input slds-assistive-text"
+                                                                               id="cell-resize-handle-77" max="1000"
+                                                                               min="20"
+                                                                               tabindex="-1"/>
+                                                                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                                                                    </div>
+                                                                </th>
+                                                                <th aria-label="Product Code" aria-sort="none"
+                                                                    class="slds-is-resizable slds-is-sortable"
+                                                                    scope="col">
+                                                                    <a class="slds-th__action slds-text-link_reset"
+                                                                       href="#"
+                                                                       role="button"
+                                                                       tabindex="-1">
+                                                                        <span class="slds-assistive-text">Sort by: </span>
+                                                                        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                                                <span class="slds-truncate"
+                                                                      title="Product Code">{!$Label.c.Brand}</span>
+                                                                            <span class="slds-icon_container slds-icon-utility-arrowdown">
+
+                          </span>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="slds-resizable">
+                                                                        <input type="range"
+                                                                               aria-label="Product Code column width"
+                                                                               class="slds-resizable__input slds-assistive-text"
+                                                                               id="cell-resize-handle-78" max="1000"
+                                                                               min="20"
+                                                                               tabindex="-1"/>
+                                                                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                                                                    </div>
+                                                                </th>
+                                                                <th aria-label="List Price" aria-sort="none"
+                                                                    class="slds-is-resizable slds-is-sortable"
+                                                                    scope="col">
+                                                                    <a class="slds-th__action slds-text-link_reset"
+                                                                       href="#"
+                                                                       role="button"
+                                                                       tabindex="-1">
+                                                                        <span class="slds-assistive-text">Sort by: </span>
+                                                                        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                                                <span class="slds-truncate"
+                                                                      title="List Price">{!$Label.c.Price}</span>
+                                                                            <span class="slds-icon_container slds-icon-utility-arrowdown">
+
+                          </span>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="slds-resizable">
+                                                                        <input type="range"
+                                                                               aria-label="List Price column width"
+                                                                               class="slds-resizable__input slds-assistive-text"
+                                                                               id="cell-resize-handle-79" max="1000"
+                                                                               min="20"
+                                                                               tabindex="-1"/>
+                                                                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                                                                    </div>
+                                                                </th>
+                                                                <th aria-label="Product Family" aria-sort="none"
+                                                                    class="slds-is-resizable slds-is-sortable"
+                                                                    scope="col">
+                                                                    <a class="slds-th__action slds-text-link_reset"
+                                                                       href="#"
+                                                                       role="button"
+                                                                       tabindex="-1">
+                                                                        <span class="slds-assistive-text">Sort by: </span>
+                                                                        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                                    <span class="slds-truncate"
+                                                          title="Product Family">{!$Label.c.Model}</span>
+                                                                            <span class="slds-icon_container slds-icon-utility-arrowdown">
+
+                          </span>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="slds-resizable">
+                                                                        <input type="range"
+                                                                               aria-label="Product Family column width"
+                                                                               class="slds-resizable__input slds-assistive-text"
+                                                                               id="cell-resize-handle-80" max="1000"
+                                                                               min="20"
+                                                                               tabindex="-1"/>
+                                                                        <span class="slds-resizable__handle">
+                          <span class="slds-resizable__divider"></span>
+                        </span>
+                                                                    </div>
+                                                                </th>
+
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <aura:iteration
+                                                                    items="{!if(v.editPriceProducts==true,v.productsToPriceBook,v.listStandardPriceBook)}"
+                                                                    var="product">
+                                                                <tr>
+                                                                    <th scope="row">
+                                                        <span class="slds-m-left_medium" data-value="{!product.Product2.Id}"
+                                                              onclick="{!c.chooseProductToNewPriceBook}">
+                                                            <input type="checkbox"
+                                                                   checked="{!if(product.selected,true,false)}"/>
+                                                        </span>
+                                                                    </th>
+
+                                                                    <th scope="row">
+                                                                        <div class="slds-truncate"
+                                                                             title="Analytics">{!product.Product2.Name}</div>
+                                                                    </th>
+                                                                    <td role="gridcell">
+                                                                        <div class="slds-truncate"
+                                                                             title="ANTLY">{!product.Product2.brand__c}</div>
+                                                                    </td>
+                                                                    <td role="gridcell">
+                                                                        <div class="slds-truncate"
+                                                                             title="5000.00">{!product.UnitPrice}</div>
+                                                                    </td>
+                                                                    <td role="gridcell">
+                                                                        <div class="slds-truncate"
+                                                                             title="Analytics Product">{!product.Product2.model__c}</div>
+                                                                    </td>
+                                                                </tr>
+                                                            </aura:iteration>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <footer class="slds-modal__footer">
+                                            <aura:if isTrue="{!v.addMode}">
+                                                <lightning:button class="slds-button slds-button_brand" label="Close"
+                                                                  onclick="{!c.handleCloseDialogToAdd}"/>
+                                                <aura:set attribute="else">
+                                                    <lightning:button class="slds-button slds-button_brand"
+                                                                      label="{!$Label.c.Close}"
+                                                                      onclick="{!c.handleCloseDialogToEdit}"/>
+                                                    <aura:if isTrue="{!v.editPriceProducts==true}">
+                                                        <lightning:button class="slds-button slds-button_brand"
+                                                                          label="{!$Label.c.Update_Products}"
+                                                                          onclick="{!c.confirmUpdatePrice}"/>
+                                                        <aura:set attribute="else">
+                                                            <lightning:button class="slds-button slds-button_brand"
+                                                                              label="{!$Label.c.Update_Price_Book}"
+                                                                              onclick="{!c.confirmUpdatePriceBook}"/>
+                                                        </aura:set>
+                                                    </aura:if>
+
+                                                </aura:set>
+                                            </aura:if>
+                                        </footer>
+                                    </div>
+                                </section>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+        </aura:if>
+    </div>
+</aura:component>

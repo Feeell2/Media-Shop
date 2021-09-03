@@ -1,0 +1,27 @@
+<aura:component controller="MS_ProductAdding"
+                implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+                description="MS_ProductPhotoSlider" access="global">
+    <aura:attribute name="objectId" type="String"/>
+    <aura:attribute name="profilePhoto" type="String"/>
+    <aura:attribute access="public" name="sObjectAttachedFiles" type="List" default="[]"/>
+    <aura:attribute access="public" name="uploadedFiles" type="List" default="[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler event="c:MS_ProductRefreshSlider" action="{!c.init}"/>
+
+        <div class="slds-grid slds-container_center">
+            <img aura:id="imgid" src="{!if(v.profilePhoto!=null,'/sfc/servlet.shepherd/version/download/'+v.profilePhoto,$Resource.blankProduct)}"
+                 alt="" style="width:300px; height:300px;margin:0 auto"/>
+        </div>
+        <lightning:layout horizontalAlign="center">
+
+            <aura:iteration items="{!v.sObjectAttachedFiles}" var="file">
+                <div data-value="{!file.LatestPublishedVersionId+'.'}" id="{!file.LatestPublishedVersionId+'.'}"
+                     onclick="{!c.setMainsPhoto}">
+                    <lightning:button class="productImage" value="{!file.LatestPublishedVersionId+'.'}"><img
+                            src="{!'/sfc/servlet.shepherd/version/download/'+file.LatestPublishedVersionId}"
+                            alt="" style="width:60px; height:60px;margin:5px"/>
+                    </lightning:button>
+                </div>
+            </aura:iteration>
+        </lightning:layout>
+</aura:component>

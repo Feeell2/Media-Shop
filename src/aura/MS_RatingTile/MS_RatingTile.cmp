@@ -1,0 +1,16 @@
+<aura:component description="MS_RatingTile" access="global"  controller="MS_RatingController">
+    <aura:attribute name="value" type="Integer" default="0"/>
+    <aura:attribute name="readonly" type="Boolean" default="false"/>
+    <aura:attribute name="idMovie" type="Integer"/>
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="message" type="String"/>
+
+    <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastRatingComponent"/>
+    <aura:registerEvent name="addRatingValue" type="c:MS_AddRateProductEvent"/>
+
+    <ltng:require scripts="{!$Resource.fivestar + '/rating.js'}"
+                  styles="{!$Resource.fivestar + '/rating.css'}"
+                  afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+    <aura:handler name="change" value="{!v.value}" action="{!c.onValueChange}"/>
+    <ul aura:id="ratingarea" onclick="{!c.changeRating}" class="{! (readonly) ? 'readonly c-rating' : 'c-rating' }"/>
+</aura:component>

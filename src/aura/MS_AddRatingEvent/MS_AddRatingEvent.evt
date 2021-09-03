@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="MS_AddRatingEvent">
+    <aura:attribute name="value" type="Integer"/>
+</aura:event>

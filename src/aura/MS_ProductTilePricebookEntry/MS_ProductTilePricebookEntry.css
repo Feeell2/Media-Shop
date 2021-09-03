@@ -1,0 +1,13 @@
+.THIS.productInfo {
+    width:80% !important;
+    margin: 0 auto;
+    display:block;
+    border-style:solid;
+    border-radius:.25rem;
+    border-color:rgb(221, 219, 218);
+    padding:20px;
+}
+
+.THIS .information {
+    color:gray;
+}

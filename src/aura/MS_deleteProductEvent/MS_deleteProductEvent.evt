@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="MS_deleteProductEvent">
+    <aura:attribute name="list_products" type="List" />
+</aura:event>
