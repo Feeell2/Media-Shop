@@ -4,13 +4,21 @@
     <aura:attribute name="disableAddToCart" type="Boolean" default="false"/>
     <aura:attribute name="type" type="String"/>
     <aura:attribute name="message" type="String"/>
+<<<<<<< HEAD
+=======
+    <aura:registerEvent name="updateQuantity" type="c:MS_UpdateQuantityInCart"/>
+>>>>>>> MS_#5
     <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastComponentProductTile"/>
     <aura:handler name="init" value="{!this}" action="{!c.getProductsToList}" />
     <div class="slds-box_border productInfo" >
 
         <div class="slds-grid">
             <div class="slds-grid  slds-p-around_medium" style="width: 100%">
+<<<<<<< HEAD
                 <img onclick="{!c.createRecord}" class="imgClick" src="{!if(v.product.Product2.Photo_Id__c!=null,'/sfc/servlet.shepherd/version/download/'+v.product.Product2.Photo_Id__c,$Resource.blankProduct)}"
+=======
+                <img onclick="{!c.navigateToRecordDetail}" class="imgClick" src="{!if(v.product.Product2.Photo_Id__c!=null,'/sfc/servlet.shepherd/version/download/'+v.product.Product2.Photo_Id__c,$Resource.blankProduct)}"
+>>>>>>> MS_#5
                      alt="" style="width:150px;height:150px;"/>
                 <div class="slds-m-left_large" style="color:black">
                     <h1  style="font-size:20px!important; text-align:left">{!v.product.Product2.Name}</h1>
