@@ -1,13 +1,16 @@
 ({
     doInit:function(component,event){
+    let updateQuantityEvent = $A.get("e.c:MS_UpdateQuantityInCart");
     let findItems=component.get("c.getProducts");
     findItems.setCallback(this,function(response){
        let state=response.getState();
        let result = response.getReturnValue();
+       updateQuantityEvent.fire();
        if(state === "SUCCESS") {
           component.set("v.searchResult",result);
           component.set('v.spinner',false);
         }
+
     });
     $A.enqueueAction(findItems);
     },
