@@ -314,6 +314,10 @@
                             <option name="name" value="MS_OrderHistory" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductRecentlyView" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
                         </list>
                       </option>
                       <option name="name" value="ApexClass" />
@@ -715,6 +719,10 @@
                           </MetadataEntry>
                           <MetadataEntry>
                             <option name="name" value="MS_OrderHistory" />
+                            <option name="selected" value="true" />
+                          </MetadataEntry>
+                          <MetadataEntry>
+                            <option name="name" value="MS_ProductRecentlyViews" />
                             <option name="selected" value="true" />
                           </MetadataEntry>
                         </list>
