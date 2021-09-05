@@ -9,7 +9,7 @@
         <lightning:card class="slds-m-top_large slds-p-horizontal_medium">
             <div class="slds-container_right">
                 <h1>{!$Label.c.Total_Order_Amount}: <span style="font-size:1.8rem">{!v.sumPrice}$</span></h1>
-                <lightning:button label="{!$Label.c.Order}"/>
+                <lightning:button label="{!$Label.c.Order}" onclick="{!c.navigate}"/>
             </div>
         </lightning:card>
     </aura:if>
