@@ -2,7 +2,12 @@
                 controller="MS_OrderHistory">
     <aura:attribute name="list_products" type="List"/>
     <aura:attribute name="spinner" type="boolean" default="true"/>
+    <aura:attribute name="showOrderHistoryTable" type="boolean" default="true"/>
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="message" type="String"/>
+    <c:MS_ToastService type="{!v.type}" message="{!v.message}" aura:id="toastComponentProductTile"/>
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
     <aura:if isTrue="{!v.spinner}">
         <div aura:id="spinnerId" class="slds-spinner_container">
             <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
@@ -12,58 +17,62 @@
             </div>
         </div>
     </aura:if>
-    <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered"
-           aria-label="Example table of Opportunities with no row hovers">
-        <thead>
-        <tr class="slds-line-height_reset">
-            <th class="" scope="col">
-                <div class="slds-truncate" title="{!$Label.c.Order_Number}">{!$Label.c.Order_Number}</div>
-            </th>
-            <th class="" scope="col">
-                <div class="slds-truncate" title="{!$Label.c.Total_Amount}">{!$Label.c.Total_Amount}</div>
-            </th>
-            <th class="" scope="col">
-                <div class="slds-truncate" title="{!$Label.c.Effective_Date}">{!$Label.c.Effective_Date}</div>
-            </th>
-            <th class="" scope="col">
-                <div class="slds-truncate" title="{!$Label.c.Payment_Method}">{!$Label.c.Payment_Method}</div>
-            </th>
-            <th class="" scope="col">
-                <div class="slds-truncate" title="{!$Label.c.Delivery_Method}">{!$Label.c.Delivery_Method}</div>
-            </th>
-<!--            <th class="" scope="col">-->
-<!--                <div class="slds-truncate" title="Contact">Contact</div>-->
-<!--            </th>-->
-        </tr>
-        </thead>
-        <tbody>
-        <aura:iteration items="{!v.list_products}" var="order">
-        <tr class="slds-hint-parent">
-            <th data-label="{!$Label.c.Order_Number}" scope="row">
-                <div style="color:#008ad1;cursor:pointer" data-value="{!order.Id}" onclick="{!c.navigateToOrder}" class="slds-truncate" title="{!$Label.c.Order_Number}">
-                    {!order.OrderNumber}
-                </div>
-            </th>
-            <td data-label="Total Amount">
-                <div class="slds-truncate" title="{!$Label.c.Total_Amount}">{!order.TotalAmount}$</div>
-            </td>
+    <aura:if isTrue="{!v.showOrderHistoryTable}">
+        <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered"
+               aria-label="Example table of Opportunities with no row hovers">
+            <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.Order_Number}">{!$Label.c.Order_Number}</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.Total_Amount}">{!$Label.c.Total_Amount}</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.Effective_Date}">{!$Label.c.Effective_Date}</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.Payment_Method}">{!$Label.c.Payment_Method}</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.Delivery_Method}">{!$Label.c.Delivery_Method}</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <aura:iteration items="{!v.list_products}" var="order">
+                <tr class="slds-hint-parent">
+                    <th data-label="{!$Label.c.Order_Number}" scope="row">
+                        <div style="color:#008ad1;cursor:pointer" data-value="{!order.Id}"
+                             onclick="{!c.navigateToOrder}" class="slds-truncate" title="{!$Label.c.Order_Number}">
+                                {!order.OrderNumber}
+                        </div>
+                    </th>
+                    <td data-label="Total Amount">
+                        <div class="slds-truncate" title="{!$Label.c.Total_Amount}">{!order.TotalAmount}$</div>
+                    </td>
 
-            <td data-label="Effective Date">
-                <div class="slds-truncate" title="{!$Label.c.Effective_Date}">{!order.EffectiveDate}</div>
-            </td>
-            <td data-label="Payment Method">
-                <div class="slds-truncate" title="{!$Label.c.Payment_Method}">{!order.Payment_Method__c}</div>
-            </td>
-            <td data-label="Delivery Method">
-                <div class="slds-truncate" title="{!$Label.c.Delivery_Method}">{!order.Delivery_Method__c}</div>
-            </td>
-<!--            <td data-label="Contact">-->
-<!--                <div class="slds-truncate" title="jrogers@cloudhub.com">-->
-<!--                    <a href="#" tabindex="-1">jrogers@cloudhub.com</a>-->
-<!--                </div>-->
-<!--            </td>-->
-        </tr>
-        </aura:iteration>
-        </tbody>
-    </table>
+                    <td data-label="Effective Date">
+                        <div class="slds-truncate" title="{!$Label.c.Effective_Date}">{!order.EffectiveDate}</div>
+                    </td>
+                    <td data-label="Payment Method">
+                        <div class="slds-truncate" title="{!$Label.c.Payment_Method}">{!order.Payment_Method__c}</div>
+                    </td>
+                    <td data-label="Delivery Method">
+                        <div class="slds-truncate" title="{!$Label.c.Delivery_Method}">{!order.Delivery_Method__c}</div>
+                    </td>
+                    <td data-label="Contact">
+                        <div class="slds-truncate" data-value="{!order.Id}" onclick="{!c.contactUs}">
+                            <lightning:button label="{!$Label.c.Contact_us}" variant="brand"
+                                              class="slds-m-top--xx-small"/>
+                        </div>
+                    </td>
+                </tr>
+            </aura:iteration>
+            </tbody>
+        </table>
+        <aura:set attribute="else">
+            <lightning:flow aura:id="flowData" onstatuschange="{!c.handleCaseFlow}"/>
+        </aura:set>
+    </aura:if>
 </aura:component>
