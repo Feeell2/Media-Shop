@@ -118,7 +118,7 @@
             wrapper:JSON.stringify(wrapper),
             bankChoose:bankChoose,
         })
-        if(!this.validateField(component)&&isBankChoose==false||(!this.validateField(component)&&isBankChoose==true&&bankChoose!='')){
+        if(!this.validateField(component)&&isBankChoose==true&&paymentMethod=='Cash'||(!this.validateField(component)&&isBankChoose==true&&bankChoose!='')){
         action.setCallback(this, function(response) {
             let state=response.getState();
             let result = response.getReturnValue();

@@ -10,10 +10,10 @@ public with sharing class MS_OrderHandler {
     public static Id createOrder(String amountOrder) {
         MS_ShoppingCartHandler.Cart cart = MS_ShoppingCartHandler.getProductsToCart();
         Order order = new Order();
-
         order.AccountId = [SELECT Contact.AccountId FROM User WHERE Id = :UserInfo.getUserId() LIMIT 1].Contact.AccountId;
         order.Pricebook2Id = [SELECT Pricebook2Id FROM PricebookEntry WHERE Id=:cart.products.get(0).product.id Limit 1].Pricebook2Id;
         order.OwnerId = UserInfo.getUserId();
+        order.Contact__c=[SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId() LIMIT 1].ContactId;
         order.Status = 'Draft';
         order.EffectiveDate = Date.today();
         insert order;
@@ -54,7 +54,6 @@ public with sharing class MS_OrderHandler {
        String message;
         try {
             orderWrapper=(OrderWrapper) JSON.deserialize(wrapper,OrderWrapper.class);
-            System.debug(orderWrapper);
             Contact contact = [SELECT ID,FirstName,LastName,Email,MailingCity,MailingState,MailingStreet,MailingPostalCode,MailingCountry FROM Contact WHERE id = :orderWrapper.id LIMIT 1];
             contact.FirstName = orderWrapper.firstName;
             contact.LastName = orderWrapper.lastName;

@@ -26,6 +26,9 @@
                     <div class="slds-truncate" title="{!$Label.c.Order_Number}">{!$Label.c.Order_Number}</div>
                 </th>
                 <th class="" scope="col">
+                    <div class="slds-truncate" title="{!$Label.c.Name}">{!$Label.c.Name}</div>
+                </th>
+                <th class="" scope="col">
                     <div class="slds-truncate" title="{!$Label.c.Total_Amount}">{!$Label.c.Total_Amount}</div>
                 </th>
                 <th class="" scope="col">
@@ -48,6 +51,9 @@
                                 {!order.OrderNumber}
                         </div>
                     </th>
+                    <td data-label="Name">
+                        <div class="slds-truncate" title="{!$Label.c.Name}">{!order.Contact__r.Name}</div>
+                    </td>
                     <td data-label="Total Amount">
                         <div class="slds-truncate" title="{!$Label.c.Total_Amount}">{!order.TotalAmount}$</div>
                     </td>

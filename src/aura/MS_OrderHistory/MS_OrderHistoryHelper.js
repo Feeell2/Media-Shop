@@ -9,6 +9,7 @@
             let state = response.getState();
             let result = response.getReturnValue();
             if(state==="SUCCESS"){
+                console.log(result.results)
                 component.set('v.list_products',result.results);
             }
             component.set('v.spinner',false);

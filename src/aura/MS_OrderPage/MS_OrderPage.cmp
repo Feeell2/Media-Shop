@@ -54,11 +54,13 @@
             <div>
                 <div class="slds-grid slds-gutters">
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.firstName}" label="{!$Label.c.First_NameF}" name="firstName"
+                        <lightning:input value="{!v.dataToDelivery.firstName}" label="{!$Label.c.First_NameF}"
+                                         name="firstName"
                                          required="true"/>
                     </div>
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.lastName}" label="{!$Label.c.Last_Name}" name="lastName"/>
+                        <lightning:input value="{!v.dataToDelivery.lastName}" label="{!$Label.c.Last_Name}"
+                                         name="lastName"/>
                     </div>
                 </div>
                 <div class="slds-grid slds-gutters">
@@ -74,12 +76,14 @@
                         <lightning:input value="{!v.dataToDelivery.state}" label="{!$Label.c.State}" name="State"/>
                     </div>
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.postalCode}" label="{!$Label.c.Postal_Code}" name="postalCode"/>
+                        <lightning:input value="{!v.dataToDelivery.postalCode}" label="{!$Label.c.Postal_Code}"
+                                         name="postalCode"/>
                     </div>
                 </div>
                 <div class="slds-grid slds-gutters">
                     <div class=" slds-col productInput">
-                        <lightning:input value="{!v.dataToDelivery.country}" label="{!$Label.c.countries}" name="Country"/>
+                        <lightning:input value="{!v.dataToDelivery.country}" label="{!$Label.c.countries}"
+                                         name="Country"/>
                     </div>
                     <div class=" slds-col productInput">
                         <lightning:input value="{!v.dataToDelivery.street}" label="{!$Label.c.Street}" name="Street"/>
@@ -87,7 +91,8 @@
                 </div>
                 <div class="slds-grid slds-gutters">
                     <div class=" slds-col productInput">
-                        <lightning:select aura:id="paymentMethod" onchange="{!c.paymentMethodHandlerHelper}"
+                        <lightning:select value="{!v.paymentMethod}" aura:id="paymentMethod"
+                                          onchange="{!c.paymentMethodHandlerHelper}"
                                           name="products" label="{!$Label.c.Payment_Method}">
                             <option value="">{!$Label.c.Choose_Payment_Method}</option>
                             <option value="Cash">{!$Label.c.Cash}</option>
@@ -95,7 +100,8 @@
                         </lightning:select>
                     </div>
                     <div class="slds-col productInput">
-                        <lightning:select aura:id="deliveryMethod" onchange="{!c.deliveryMethodHandlerHelper}"
+                        <lightning:select value="{!v.deliveryMethod}" aura:id="deliveryMethod"
+                                          onchange="{!c.deliveryMethodHandlerHelper}"
                                           name="products" label="{!$Label.c.Delivery_Method}">
                             <option value="">{!$Label.c.Choose_Delivery_Method}</option>
                             <option value="Delivery Man">{!$Label.c.Delivery_Man}</option>
@@ -106,51 +112,118 @@
             </div>
             <div class="slds-grid slds-m-around_medium slds-grid_align-end">
                 <lightning:button label="{!$Label.c.previous}" onclick="{!c.previousStep}"/>
-                <aura:if isTrue="{!v.paymentMethod!='Cash'}">
-                    <lightning:button label="{!$Label.c.next}" onclick="{!c.nextStep}"/>
-                    <aura:set attribute="else">
-                        <lightning:button label="{!$Label.c.order}" onclick="{!c.showConfirmDialog}"/>
-                    </aura:set>
-                </aura:if>
+                <lightning:button label="{!$Label.c.next}" onclick="{!c.nextStep}"/>
             </div>
         </div>
 
 
     </aura:if>
     <aura:if isTrue="{!v.isChooseBankOrder==true}">
-        <h1 class="slds-card__header-title">{!$Label.c.Choose_Bank}</h1>
+        <h1 class="slds-card__header-title">Details Order</h1>
         <div style="width:80%;margin:0 auto">
-            <div class="slds-grid slds-wrap slds-grid_align-center">
+            <div>
                 <div class="slds-grid slds-gutters">
-                    <div id="IPKO" data-value="IPKO" class="slds-col slds-m-around_medium" onclick="{!c.setBank}">
-                        <img class="productImage" src="{!$Resource.IPKO}"
-                        />
+                    <div class=" slds-col productInput">
+                        <lightning:input disabled="true" value="{!v.dataToDelivery.firstName}"
+                                         label="{!$Label.c.First_NameF}" name="firstName"
+                                         required="true"/>
                     </div>
-                    <div id="BNP" data-value="BNP" class="slds-col slds-m-around_medium" onclick="{!c.setBank}">
-                        <img class="productImage" src="{!$Resource.BNP}"/>
-                    </div>
-                    <div id="Pocztowy" data-value="Pocztowy" class="slds-col slds-m-around_medium"
-                         onclick="{!c.setBank}">
-                        <img class="productImage" src="{!$Resource.Pocztowy}"
-                        />
+                    <div class=" slds-col productInput">
+                        <lightning:input disabled="true" value="{!v.dataToDelivery.lastName}"
+                                         label="{!$Label.c.Last_Name}" name="lastName"/>
                     </div>
                 </div>
                 <div class="slds-grid slds-gutters">
-                    <div id="Alior" data-value="Alior" class="slds-col slds-m-around_medium" onclick="{!c.setBank}">
-                        <img class="productImage" src="{!$Resource.Alior}"/>
+                    <div class=" slds-col productInput">
+                        <lightning:input disabled="true" value="{!v.dataToDelivery.email}" label="{!$Label.c.e_mail}"
+                                         name="Email"/>
                     </div>
-                    <div id="ING" data-value="ING" class="slds-col slds-m-around_medium" onclick="{!c.setBank}">
-                        <img class="productImage" src="{!$Resource.ING}"/>
-                    </div>
-                    <div class="slds-col">
+                    <div class=" slds-col productInput">
+                        <lightning:input disabled="true" value="{!v.dataToDelivery.city}" label="{!$Label.c.City}"
+                                         name="City"/>
                     </div>
                 </div>
-            </div>
-            <div class="slds-grid slds-m-around_medium slds-grid_align-end">
-                <lightning:button label="{!$Label.c.previous}" onclick="{!c.previousStep}"/>
-                <lightning:button label="{!$Label.c.order}" onclick="{!c.showConfirmDialog}"/>
+                <div class="slds-grid slds-gutters">
+                    <div class=" slds-col productInput">
+                        <lightning:input disabled="true" value="{!v.dataToDelivery.state}" label="{!$Label.c.State}"
+                                         name="State"/>
+                    </div>
+                    <div class=" slds-col productInput">
+                        <lightning:input disabled="true" value="{!v.dataToDelivery.postalCode}"
+                                         label="{!$Label.c.Postal_Code}" name="postalCode"/>
+                    </div>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class=" slds-col productInput">
+                        <lightning:input disabled="true" value="{!v.dataToDelivery.country}"
+                                         label="{!$Label.c.countries}" name="Country"/>
+                    </div>
+                    <div class=" slds-col productInput">
+                        <lightning:input disabled="true" value="{!v.dataToDelivery.street}" label="{!$Label.c.Street}"
+                                         name="Street"/>
+                    </div>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class=" slds-col productInput">
+                        <lightning:select disabled="true" value="{!v.paymentMethod}" aura:id="paymentMethod"
+                                          onchange="{!c.paymentMethodHandlerHelper}"
+                                          name="products" label="{!$Label.c.Payment_Method}">
+                            <option value="">{!$Label.c.Choose_Payment_Method}</option>
+                            <option value="Cash">{!$Label.c.Cash}</option>
+                            <option value="Credit card">{!$Label.c.Credit_card}</option>
+                        </lightning:select>
+                    </div>
+                    <div class="slds-col productInput">
+                        <lightning:select disabled="true" value="{!v.deliveryMethod}" aura:id="deliveryMethod"
+                                          onchange="{!c.deliveryMethodHandlerHelper}"
+                                          name="products" label="{!$Label.c.Delivery_Method}">
+                            <option value="">{!$Label.c.Choose_Delivery_Method}</option>
+                            <option value="Delivery Man">{!$Label.c.Delivery_Man}</option>
+                            <option value="Parcel locker">{!$Label.c.Parcel_locker}</option>
+                        </lightning:select>
+                    </div>
+                </div>
             </div>
         </div>
+        <aura:if isTrue="{!v.paymentMethod!='Cash'}">
+            <h1 class="slds-card__header-title">{!$Label.c.Choose_Bank}</h1>
+            <div style="width:80%;margin:0 auto">
+                <div class="slds-grid slds-wrap slds-grid_align-center">
+                    <div class="slds-grid slds-gutters">
+                        <div id="IPKO" data-value="IPKO" class="slds-col slds-m-around_medium" onclick="{!c.setBank}">
+                            <img class="productImage" src="{!$Resource.IPKO}"
+                            />
+                        </div>
+                        <div id="BNP" data-value="BNP" class="slds-col slds-m-around_medium" onclick="{!c.setBank}">
+                            <img class="productImage" src="{!$Resource.BNP}"/>
+                        </div>
+                        <div id="Pocztowy" data-value="Pocztowy" class="slds-col slds-m-around_medium"
+                             onclick="{!c.setBank}">
+                            <img class="productImage" src="{!$Resource.Pocztowy}"
+                            />
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <div id="Alior" data-value="Alior" class="slds-col slds-m-around_medium" onclick="{!c.setBank}">
+                            <img class="productImage" src="{!$Resource.Alior}"/>
+                        </div>
+                        <div id="ING" data-value="ING" class="slds-col slds-m-around_medium" onclick="{!c.setBank}">
+                            <img class="productImage" src="{!$Resource.ING}"/>
+                        </div>
+                        <div class="slds-col">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+        <div class="slds-grid slds-grid_align-center slds-p-around_medium" style="width: 100%">
+            <h1>{!$Label.c.Total_Price} <span style="font-size:30px!important">{!v.sumPrice}$</span></h1>
+        </div>
+        <div class="slds-grid slds-m-around_medium slds-grid_align-end">
+            <lightning:button label="{!$Label.c.previous}" onclick="{!c.previousStep}"/>
+            <lightning:button label="{!$Label.c.order}" onclick="{!c.showConfirmDialog}"/>
+        </div>
+
     </aura:if>
     <aura:if isTrue="{!v.isDisplayDialog}">
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
@@ -165,8 +238,10 @@
 
                 </div>
                 <footer class="slds-modal__footer">
-                    <button class="slds-button slds-button_neutral" onclick="{!c.hideConfirmDialog}">{!$Label.c.cancel}</button>
-                    <button class="slds-button slds-button_brand" onclick="{!c.saveOrderHandler}">{!$Label.c.save}</button>
+                    <button class="slds-button slds-button_neutral"
+                            onclick="{!c.hideConfirmDialog}">{!$Label.c.cancel}</button>
+                    <button class="slds-button slds-button_brand"
+                            onclick="{!c.saveOrderHandler}">{!$Label.c.save}</button>
                 </footer>
             </div>
         </section>
