@@ -5,6 +5,7 @@
       <list>
         <IlluminatedCloudConnection>
           <option name="connectionName" value="MS_MediaShop" />
+          <option name="connectionType" value="MDAPI" />
           <option name="defaultModuleName" value="Media Shop" />
           <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/MS_MediaShop/OfflineSymbolTable.zip" />
         </IlluminatedCloudConnection>

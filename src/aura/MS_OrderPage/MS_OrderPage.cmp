@@ -104,8 +104,8 @@
                                           onchange="{!c.deliveryMethodHandlerHelper}"
                                           name="products" label="{!$Label.c.Delivery_Method}">
                             <option value="">{!$Label.c.Choose_Delivery_Method}</option>
-                            <option value="Delivery Man">{!$Label.c.Delivery_Man}</option>
-                            <option value="Parcel locker">{!$Label.c.Parcel_locker}</option>
+                            <option value="{!$Label.c.Courier}">{!$Label.c.Courier}</option>
+                            <option value="{!$Label.c.Parcel_locker}">{!$Label.c.Parcel_locker}</option>
                         </lightning:select>
                     </div>
                 </div>
@@ -178,8 +178,8 @@
                                           onchange="{!c.deliveryMethodHandlerHelper}"
                                           name="products" label="{!$Label.c.Delivery_Method}">
                             <option value="">{!$Label.c.Choose_Delivery_Method}</option>
-                            <option value="Delivery Man">{!$Label.c.Delivery_Man}</option>
-                            <option value="Parcel locker">{!$Label.c.Parcel_locker}</option>
+                            <option value="{!$Label.c.Courier}">{!$Label.c.Courier}</option>
+                            <option value="{!$Label.c.Parcel_locker}">{!$Label.c.Parcel_locker}</option>
                         </lightning:select>
                     </div>
                 </div>
