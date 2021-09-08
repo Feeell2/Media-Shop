@@ -6,10 +6,11 @@
        let state=response.getState();
        let result = response.getReturnValue();
        updateQuantityEvent.fire();
+       console.log(result);
        if(state === "SUCCESS") {
           component.set("v.searchResult",result);
-          component.set('v.spinner',false);
         }
+        component.set('v.spinner',false);
 
     });
     $A.enqueueAction(findItems);
@@ -31,8 +32,8 @@
              let result = response.getReturnValue();
              if(state === "SUCCESS") {
                 component.set("v.searchResult",result);
-                component.set('v.spinner',false);
               }
+              component.set('v.spinner',false);
           });
           $A.enqueueAction(findItems);
     }
