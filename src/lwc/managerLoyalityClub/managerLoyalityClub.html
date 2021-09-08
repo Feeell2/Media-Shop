@@ -1,0 +1,21 @@
+<template>
+    <template if:true={isSpinner}>
+        <div class="spinner">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <lightning-card title={label.membersLoyaltyClub}>
+        <div class="slds-p-horizontal_large">
+            <template for:each={listMembers} for:item="member">
+                <lightning-layout-item key={member.Contact.Id} size="3" class="slds-var-p-around_x-small">
+                    <c-manager-loyalty-club-user-tile oncallinparent={passToParent} user={member}></c-manager-loyalty-club-user-tile>
+                </lightning-layout-item>
+            </template>
+        </div>
+        <div class="slds-grid slds-grid_align-center" if:true={emptyList} style="height:200px">
+            <div class="slds-align-middle slds" >
+                <h1 style="font-size:1.3rem;text-align:center">{label.noMembers}</h1>
+            </div>
+        </div>
+    </lightning-card>
+</template>

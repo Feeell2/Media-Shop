@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-box_border productInfo" style="width: 15vw;min-height:220px;">
+
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-grid slds-grid_vertical  slds-p-around_medium" style="width:100%">
+                <div style="color:black" class="slds-m-bottom_medium">
+                    <h1 style="font-size:1.3rem; text-align:center; font-weight:bold">{user.Name}</h1>
+                </div>
+                <img class="imgClick"
+                     src={user.Photo_Id__c}
+                     alt="" style="width:150px;height:150px;margin:0 auto"/>
+                <div class="slds-align-middle slds-m-top_large">
+                    <lightning-button value="Delete" label={label.remove} onclick={deleteCon}></lightning-button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>

@@ -19,10 +19,14 @@
                     <h1 style="font-size:20px!important; text-align:left">{!v.product.Product2.Name}</h1>
                     <div style="font-size:12px;" class="slds-grid">
                         <h1 class="slds-m-right_large"><span class="information">{!$Label.c.Brand}
-                            : </span> {!v.product.Product2.brand__c}</h1>
+                                : </span> {!v.product.Product2.brand__c}</h1>
                         <h1 class="slds-m-left_large"><span class="information">{!$Label.c.Model}
-                            : </span> {!v.product.Product2.model__c}</h1>
+                                : </span> {!v.product.Product2.model__c}</h1>
                     </div>
+                    <aura:if isTrue="{!v.product.Pricebook2.IsStandard==false}">
+                        <h1><span class="information">Discount
+                            : </span> {!100-v.product.Percentage_of_the_price__c}%</h1>
+                    </aura:if>
                     <h1 style="font-size:30px!important; text-align:left; font-weight:bold">{!v.product.UnitPrice}$</h1>
                 </div>
             </div>

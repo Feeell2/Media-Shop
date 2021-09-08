@@ -1,0 +1,43 @@
+<template>
+    <template if:true={isSpinner}>
+        <div class="spinner">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <template if:true={contactObject}>
+    <div class="slds-container_center" style="width:100%">
+        <div style="text-align:center;">
+            <h1 style="font-size:1.5rem">{label.joinToOurClub}</h1>
+        </div>
+        <div class="slds-p-bottom_large slds-p-left_large" style="width:500px;margin:0 auto">
+            <lightning-record-edit-form object-api-name="Contact"  record-id={contactObject.Id}>
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="FirstName" read-only={isReadOnly} value={contactObject.FirstName}>
+                </lightning-input-field>
+                <lightning-input-field field-name="LastName" read-only={isReadOnly} value={contactObject.LastName}>
+                </lightning-input-field>
+                <lightning-input-field field-name="Phone" read-only={isReadOnly} value={contactObject.Phone}>
+                </lightning-input-field>
+                <lightning-input-field field-name="Your_interests__c" read-only={isReadOnly} value={contactObject.Your_interests__c}>
+                </lightning-input-field>
+                <lightning-input-field field-name="Tell_about_yourself__c" read-only={isReadOnly} value={contactObject.Tell_about_yourself__c}>
+                </lightning-input-field>
+                <lightning-input-field field-name="How_do_you_know_about_us__c" read-only={isReadOnly} value={contactObject.How_do_you_know_about_us__c}>
+                </lightning-input-field>
+                <lightning-input-field field-name="Send_marketing_emails__c" disabled= {isReadOnly} value={contactObject.Send_marketing_emails__c}>
+                </lightning-input-field>
+                <lightning-button if:false= {isReadOnly} type="submit"
+                                  name="submit"
+                                  label={label.join}
+                                  onclick={updateCon}>
+                </lightning-button>
+                <lightning-button if:true={isReadOnly} type="submit"
+                                  name="submit"
+                                  label={label.leave}
+                                  onclick={updateCon}>
+                </lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </div>
+    </template>
+</template>
